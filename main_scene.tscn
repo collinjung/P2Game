@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf5lc88avfjrd"]
+
+[ext_resource type="Script" path="res://main_scene.gd" id="1_otlu0"]
+
+[node name="Main Scene" type="Node2D"]
+script = ExtResource("1_otlu0")
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health?" type="Label" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 134.0
+offset_bottom = 61.0
+
+[node name="Level 1" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 11.0
+offset_right = 117.0
+offset_bottom = 42.0
+text = "Start Game"
+
+[connection signal="pressed" from="Menu/Level 1" to="." method="_on_Load_1_pressed"]
