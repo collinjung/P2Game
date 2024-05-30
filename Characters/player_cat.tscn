@@ -1,9 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://mlj24b2hk5qs"]
+[gd_scene load_steps=34 format=3 uid="uid://mlj24b2hk5qs"]
 
 [ext_resource type="Script" path="res://Characters/player_cat.gd" id="1_3g48s"]
-[ext_resource type="Texture2D" uid="uid://b251w6ilgcv2d" path="res://Art/P2 Art/main_character.png" id="2_k3ml6"]
 [ext_resource type="AudioStream" uid="uid://4dv5y26kn1wy" path="res://Audio/boulder_push.mp3" id="3_0iw3q"]
 [ext_resource type="AudioStream" uid="uid://b3fd7bewmhwoc" path="res://Audio/player_walk.mp3" id="3_jjbgt"]
+[ext_resource type="Texture2D" uid="uid://umao6bfugahj" path="res://Art/map.png" id="3_r2uhd"]
 [ext_resource type="AudioStream" uid="uid://dussxk1yw7nfa" path="res://Audio/acquired_key_sound.wav" id="5_k73wt"]
 [ext_resource type="AudioStream" uid="uid://o14fy5fe4aa4" path="res://Audio/door_unlock.wav" id="5_qj02h"]
 [ext_resource type="AudioStream" uid="uid://6krfaxtw4awd" path="res://Audio/mining_rock_sound.mp3" id="7_k34pk"]
@@ -94,6 +94,21 @@ tracks/0/keys = {
 "values": [6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_b7btv"]
+resource_name = "mining"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.2315, 0.336),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [24, 26, 27]
+}
+
 [sub_resource type="Animation" id="Animation_8vklt"]
 resource_name = "walk_down"
 length = 0.4
@@ -169,6 +184,7 @@ _data = {
 "idle_left": SubResource("Animation_0i4am"),
 "idle_right": SubResource("Animation_4nonf"),
 "idle_up": SubResource("Animation_brgri"),
+"mining": SubResource("Animation_b7btv"),
 "walk_down": SubResource("Animation_8vklt"),
 "walk_left": SubResource("Animation_xsxp1"),
 "walk_right": SubResource("Animation_7qrdh"),
@@ -237,20 +253,21 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mdfa6"]
 states/End/position = Vector2(681, 121.5)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_p81vr")
-states/Idle/position = Vector2(331.5, 100.145)
+states/Idle/position = Vector2(327.5, 99.9893)
 states/Start/position = Vector2(199, 100.041)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_3eh0c")
 states/Walk/position = Vector2(479, 99.9375)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_n8b3v"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_s2dx2"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xftbc")]
+graph_offset = Vector2(-1.18283e-05, 19.3875)
 
 [node name="PlayerCat" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_3g48s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
-texture = ExtResource("2_k3ml6")
+texture = ExtResource("3_r2uhd")
 hframes = 4
-vframes = 5
+vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -286,5 +303,3 @@ volume_db = -18.0
 [node name="AudioStreamPlayer_MineRock" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_k34pk")
 volume_db = -16.0
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]

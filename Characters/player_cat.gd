@@ -18,6 +18,7 @@ extends CharacterBody2D
 @onready var keyPickedUpSound = $AudioStreamPlayer_Key
 @onready var doorUnlockedSound = $AudioStreamPlayer_DoorUnlock
 @onready var rockMinedSound = $AudioStreamPlayer_MineRock
+@onready var animation = $AnimationPlayer
 
 var push_force = 10
 var key_picked_up = false
@@ -26,8 +27,10 @@ const FILE_BEGIN = "res://Levels/puzzle_"
 func _ready():
 	update_animation_parameters(starting_direction)
 
-func _input(ev):
-	return ev
+func _input(event):
+	if Input.is_action_just_pressed("mine"):
+		animation.play("mining")
+	return event
 
 func _process(delta):
 	if Input.is_action_just_pressed('spell'):
