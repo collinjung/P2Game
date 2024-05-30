@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Levels/boulders_p1.gd" id="5_5c5n2"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="6_rhnpn"]
 [ext_resource type="Script" path="res://Levels/boulder_green.gd" id="7_ab4nm"]
-[ext_resource type="AudioStream" uid="uid://dsjjpwrxtjen2" path="res://Audio/key_item.wav" id="9_ucrjo"]
+[ext_resource type="AudioStream" uid="uid://cq180eiw1301v" path="res://Audio/key_item.wav" id="9_ucrjo"]
 [ext_resource type="Script" path="res://Levels/boulder_red.gd" id="9_womqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swq6p"]

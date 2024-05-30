@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var playerPushingSound = $AudioStreamPlayer_Pushing
 @onready var keyPickedUpSound = $AudioStreamPlayer_Key
 @onready var doorUnlockedSound = $AudioStreamPlayer_DoorUnlock
+@onready var rockMinedSound = $AudioStreamPlayer_MineRock
 
 var push_force = 10
 var key_picked_up = false
@@ -34,6 +35,8 @@ func _process(delta):
 	if Input.is_action_just_pressed('reset') and camera and player:
 		camera.position = lastRoom
 		player.position = lastPosition
+	#if Input.is_action_just_pressed("mine"):
+	
 	
 
 func _physics_process(_delta):
@@ -126,4 +129,5 @@ func _on_key_hole_body_entered(body):
 		$key_found.visible = false
 		await get_tree().create_timer(1.0).timeout
 		get_tree().paused = false
+		
 		

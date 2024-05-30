@@ -1,12 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqve5rwndb4np"]
+[gd_scene load_steps=20 format=3 uid="uid://dqve5rwndb4np"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_i8kvh"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_rwds7"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_rjkko"]
 [ext_resource type="Texture2D" uid="uid://yeskc4c2afqw" path="res://Art/tileset_update.PNG" id="4_f6aqd"]
 [ext_resource type="Script" path="res://Levels/Room1.gd" id="5_sfk1o"]
+[ext_resource type="PackedScene" uid="uid://dbhlu0fo7fyod" path="res://Objects/rock.tscn" id="8_8c0bs"]
+[ext_resource type="Texture2D" uid="uid://tx2kxd4c0rq0" path="res://Art/247G_tileset_5_29.png" id="9_av07p"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="9_v2id4"]
+[ext_resource type="Script" path="res://Objects/rock.gd" id="9_w8po1"]
 [ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="10_fu56x"]
+[ext_resource type="AudioStream" uid="uid://6krfaxtw4awd" path="res://Audio/mining_rock_sound.mp3" id="11_741dd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae5b4"]
 texture = ExtResource("4_f6aqd")
@@ -876,6 +880,12 @@ size = Vector2(72, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo0um"]
 size = Vector2(8, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvfqn"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtj2b"]
+size = Vector2(50, 50)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_rwds7")
 
@@ -1031,6 +1041,60 @@ shape = SubResource("RectangleShape2D_ntr08")
 position = Vector2(1349, 713)
 shape = SubResource("RectangleShape2D_ntr08")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 352.0
+offset_top = 136.0
+offset_right = 392.0
+offset_bottom = 159.0
+text = "0"
+
+[node name="Mineable" type="Node" parent="."]
+
+[node name="Rock" parent="Mineable" instance=ExtResource("8_8c0bs")]
+script = ExtResource("9_w8po1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mineable/Rock"]
+texture = ExtResource("9_av07p")
+region_enabled = true
+region_rect = Rect2(544, 32, 32, 32)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mineable/Rock"]
+shape = SubResource("RectangleShape2D_nvfqn")
+
+[node name="AudioStreamPlayer2D_RockMined" type="AudioStreamPlayer2D" parent="Mineable/Rock"]
+stream = ExtResource("11_741dd")
+
+[node name="Rock_Area2" type="Area2D" parent="Mineable/Rock"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mineable/Rock/Rock_Area2"]
+shape = SubResource("RectangleShape2D_wtj2b")
+
+[node name="Rock2" parent="Mineable" instance=ExtResource("8_8c0bs")]
+position = Vector2(272, 88)
+script = ExtResource("9_w8po1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mineable/Rock2"]
+texture = ExtResource("9_av07p")
+region_enabled = true
+region_rect = Rect2(544, 32, 32, 32)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mineable/Rock2"]
+shape = SubResource("RectangleShape2D_nvfqn")
+
+[node name="AudioStreamPlayer2D_RockMined" type="AudioStreamPlayer2D" parent="Mineable/Rock2"]
+stream = ExtResource("11_741dd")
+
+[node name="Rock_Area2" type="Area2D" parent="Mineable/Rock2"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mineable/Rock2/Rock_Area2"]
+shape = SubResource("RectangleShape2D_wtj2b")
+
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="Rooms/Room1/DoorRight" to="Player" method="_on_door_right_body_entered"]
 [connection signal="body_entered" from="Rooms/Room2/DoorDown" to="Player" method="_on_door_down_body_entered"]
@@ -1045,3 +1109,11 @@ shape = SubResource("RectangleShape2D_ntr08")
 [connection signal="body_entered" from="Rooms/Room7/DoorRight" to="Player" method="_on_door_right_body_entered"]
 [connection signal="body_entered" from="Rooms/Room8/DoorLeft" to="Player" method="_on_door_left_body_entered"]
 [connection signal="body_entered" from="Rooms/Room8/DoorRight" to="Player" method="_on_final_body_entered"]
+[connection signal="body_entered" from="Mineable/Rock/Rock_Area2" to="Player" method="_on_rock_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Mineable/Rock/Rock_Area2" to="Mineable/Rock" method="_on_rock_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Mineable/Rock/Rock_Area2" to="Mineable/Rock" method="_on_rock_area_2_body_exited"]
+[connection signal="mouse_entered" from="Mineable/Rock/Rock_Area2" to="Mineable/Rock" method="_on_rock_area_2_mouse_entered"]
+[connection signal="body_entered" from="Mineable/Rock2/Rock_Area2" to="Player" method="_on_rock_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Mineable/Rock2/Rock_Area2" to="Mineable/Rock2" method="_on_rock_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Mineable/Rock2/Rock_Area2" to="Mineable/Rock2" method="_on_rock_area_2_body_exited"]
+[connection signal="mouse_entered" from="Mineable/Rock2/Rock_Area2" to="Mineable/Rock2" method="_on_rock_area_2_mouse_entered"]

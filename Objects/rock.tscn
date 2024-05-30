@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbhlu0fo7fyod"]
+
+[ext_resource type="Texture2D" uid="uid://tx2kxd4c0rq0" path="res://Art/247G_tileset_5_29.png" id="1_le5j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnafe"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttjtq"]
+size = Vector2(50, 50)
+
+[node name="Rock" type="StaticBody2D"]
+position = Vector2(272, 144)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_le5j3")
+region_enabled = true
+region_rect = Rect2(544, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wnafe")
+
+[node name="Rock_Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock_Area2D"]
+shape = SubResource("RectangleShape2D_ttjtq")

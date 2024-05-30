@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://yeskc4c2afqw" path="res://Art/tileset_update.PNG" id="5_1t46y"]
 [ext_resource type="Texture2D" uid="uid://dqcwvboqcrrcd" path="res://Art/P2 Art/boulder.png" id="5_727ph"]
 [ext_resource type="Script" path="res://Levels/boulder_red.gd" id="5_rjw0b"]
-[ext_resource type="AudioStream" uid="uid://dsjjpwrxtjen2" path="res://Audio/key_item.wav" id="6_8npf6"]
+[ext_resource type="AudioStream" uid="uid://cq180eiw1301v" path="res://Audio/key_item.wav" id="6_8npf6"]
 [ext_resource type="Script" path="res://Levels/boulder_purple.gd" id="6_xy6pu"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="7_kpww0"]
 
