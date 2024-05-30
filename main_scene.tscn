@@ -1,35 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf5lc88avfjrd"]
+[gd_scene load_steps=3 format=3 uid="uid://bf5lc88avfjrd"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_otlu0"]
+[ext_resource type="Theme" uid="uid://b4a2khy64nn7a" path="res://default_button.tres" id="2_pj1nn"]
 
 [node name="Main Scene" type="Node2D"]
+position = Vector2(-1, 108)
 script = ExtResource("1_otlu0")
 
 [node name="Main" type="Node2D" parent="."]
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Health?" type="Label" parent="HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 134.0
-offset_bottom = 61.0
+offset_left = 161.0
+offset_top = -2.0
+offset_right = 295.0
+offset_bottom = 59.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Level 1" type="Button" parent="Menu"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0895522
+anchor_top = 0.131148
+anchor_right = 0.0895522
+anchor_bottom = 0.131148
 offset_left = 21.0
 offset_top = 11.0
 offset_right = 117.0
 offset_bottom = 42.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_pj1nn")
 text = "Start Game"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Menu/Level 1" to="." method="_on_Load_1_pressed"]
+[node name="Quit" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0895522
+anchor_top = 0.819672
+anchor_right = 0.0895522
+anchor_bottom = 0.819672
+offset_left = 21.0
+offset_top = 11.0
+offset_right = 117.0
+offset_bottom = 42.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_pj1nn")
+text = "Quit
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Menu/Level 1" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8dnkfgfsxbch"]
+
+[ext_resource type="Script" path="res://Cut Scenes/cut_scene.gd" id="1_8pkbm"]
+[ext_resource type="VideoStream" path="res://Videos/bigger-cutscene-test.ogv" id="2_lmjhp"]
+
+[node name="Cut Scene" type="Node2D"]
+
+[node name="Cut Scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -177.0
+offset_right = -83.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8pkbm")
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Cut Scene"]
+layout_mode = 1
+offset_left = 83.0
+offset_top = 177.0
+offset_right = 563.0
+offset_bottom = 447.0
+stream = ExtResource("2_lmjhp")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="Cut Scene/VideoStreamPlayer" to="Cut Scene" method="_on_video_stream_player_finished"]

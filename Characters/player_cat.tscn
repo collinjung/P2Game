@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://mlj24b2hk5qs"]
+[gd_scene load_steps=30 format=3 uid="uid://mlj24b2hk5qs"]
 
 [ext_resource type="Script" path="res://Characters/player_cat.gd" id="1_3g48s"]
 [ext_resource type="Texture2D" uid="uid://b251w6ilgcv2d" path="res://Art/P2 Art/main_character.png" id="2_k3ml6"]
+[ext_resource type="AudioStream" uid="uid://cefhhtthbncpe" path="res://Audio/boulder_push.mp3" id="3_0iw3q"]
+[ext_resource type="AudioStream" uid="uid://duc2l2ef3psw7" path="res://Audio/player_walk.mp3" id="3_jjbgt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5w10"]
 size = Vector2(12, 19)
@@ -261,3 +263,11 @@ tree_root = SubResource("AnimationNodeStateMachine_mdfa6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(-0.00220263, 1.04693)
 parameters/Walk/blend_position = Vector2(0.309471, 0.0144737)
+
+[node name="AudioStreamPlayer_Pushing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0iw3q")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer_Walking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jjbgt")
+volume_db = -25.0

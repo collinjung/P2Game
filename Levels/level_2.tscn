@@ -1,18 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn8vlfixqxdgy"]
+[gd_scene load_steps=10 format=3 uid="uid://cn8vlfixqxdgy"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_lbctk"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_jjp6v"]
+[ext_resource type="PackedScene" uid="uid://o0r7vf4gybfp" path="res://GUI/resouce_display.tscn" id="4_43ksk"]
 [ext_resource type="Script" path="res://Levels/Room1.gd" id="5_0yqlx"]
-[ext_resource type="Script" path="res://Levels/next_level.gd" id="9_t37pd"]
-[ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="10_ac1yi"]
+[ext_resource type="PackedScene" uid="uid://bwoedkb1ot1ly" path="res://GUI/dungeon_name.tscn" id="5_pj7me"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy8et"]
-size = Vector2(24, 27)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn12t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hdod"]
 size = Vector2(8, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju7sj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdn0i"]
+size = Vector2(8, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gll7"]
+size = Vector2(72, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwajl"]
 size = Vector2(72, 8)
 
 [node name="Level 2" type="Node2D"]
@@ -26,6 +29,8 @@ zoom = Vector2(1.1, 0.9)
 
 [node name="Player" parent="." instance=ExtResource("1_lbctk")]
 position = Vector2(68, 611)
+collision_layer = 3
+collision_mask = 7
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 
@@ -44,160 +49,234 @@ layer_2/name = "Top Ground"
 layer_2/z_index = -3
 layer_2/tile_data = PackedInt32Array()
 
-[node name="NextLevel" type="Area2D" parent="."]
-position = Vector2(2273, 684)
-script = ExtResource("9_t37pd")
+[node name="Rooms" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="NextLevel"]
-position = Vector2(1.00002, 1.00001)
-scale = Vector2(0.0299928, 0.0301267)
-texture = ExtResource("10_ac1yi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1, 4)
-shape = SubResource("RectangleShape2D_cy8et")
-
-[node name="Room1" type="Node" parent="."]
+[node name="Room1" type="Node" parent="Rooms"]
 script = ExtResource("5_0yqlx")
 
-[node name="DoorRight" type="Area2D" parent="Room1"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorRight"]
-position = Vector2(439, 728)
-scale = Vector2(0.440005, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/DoorRight"]
+position = Vector2(431, 729)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room2" type="Node" parent="."]
+[node name="Room2" type="Node" parent="Rooms"]
 script = ExtResource("5_0yqlx")
 
-[node name="DoorRight" type="Area2D" parent="Room2"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/DoorRight"]
-position = Vector2(885, 728)
-scale = Vector2(0.319995, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room2/DoorRight"]
+position = Vector2(874, 727)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room3" type="Node" parent="."]
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room2/DoorLeft"]
+position = Vector2(450, 729)
+shape = SubResource("RectangleShape2D_jdn0i")
+
+[node name="DoorDown" type="Area2D" parent="Rooms/Room2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room2/DoorDown"]
+position = Vector2(646, 858)
+shape = SubResource("RectangleShape2D_3gll7")
+
+[node name="Room3" type="Node" parent="Rooms"]
 script = ExtResource("5_0yqlx")
 
-[node name="DoorRight" type="Area2D" parent="Room3"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3/DoorRight"]
-position = Vector2(1329, 730)
-scale = Vector2(0.399995, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room3/DoorRight"]
+position = Vector2(1318, 729)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room4" type="Node" parent="."]
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room3/DoorLeft"]
+position = Vector2(893, 727)
+shape = SubResource("RectangleShape2D_jdn0i")
+
+[node name="DoorDown" type="Area2D" parent="Rooms/Room3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room3/DoorDown"]
+position = Vector2(1089, 859)
+shape = SubResource("RectangleShape2D_3gll7")
+
+[node name="Room4" type="Node" parent="Rooms"]
+
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room4/DoorLeft"]
+position = Vector2(1337, 728)
+shape = SubResource("RectangleShape2D_jdn0i")
+
+[node name="DoorUp" type="Area2D" parent="Rooms/Room4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room4/DoorUp"]
+position = Vector2(1535, 596)
+shape = SubResource("RectangleShape2D_gwajl")
+
+[node name="Room5" type="Node" parent="Rooms"]
 script = ExtResource("5_0yqlx")
 
-[node name="DoorRight" type="Area2D" parent="Room4"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room5"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4/DoorRight"]
-position = Vector2(1775, 441)
-scale = Vector2(0.64, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room5/DoorRight"]
+position = Vector2(1764, 440)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room5" type="Node" parent="."]
+[node name="DoorDown" type="Area2D" parent="Rooms/Room5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room5/DoorDown"]
+position = Vector2(1537, 570)
+shape = SubResource("RectangleShape2D_3gll7")
+
+[node name="Room6" type="Node" parent="Rooms"]
 script = ExtResource("5_0yqlx")
 
-[node name="DoorRight" type="Area2D" parent="Room5"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room6"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room5/DoorRight"]
-position = Vector2(2218, 439)
-scale = Vector2(0.52, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room6/DoorRight"]
+position = Vector2(2209, 442)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room6" type="Node" parent="."]
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room6"]
+position = Vector2(444, -288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room6/DoorLeft"]
+position = Vector2(1337, 728)
+shape = SubResource("RectangleShape2D_jdn0i")
+
+[node name="Room7" type="Node" parent="Rooms"]
 script = ExtResource("5_0yqlx")
 
-[node name="DoorRight" type="Area2D" parent="Room6"]
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room7"]
+position = Vector2(890, -286)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room6/DoorRight"]
-position = Vector2(1329, 1306)
-scale = Vector2(0.4, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room7/DoorLeft"]
+position = Vector2(1337, 728)
+shape = SubResource("RectangleShape2D_jdn0i")
 
-[node name="Room7" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="DoorDown" type="Area2D" parent="Rooms/Room7"]
 
-[node name="DoorRight" type="Area2D" parent="Room7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room7/DoorDown"]
+position = Vector2(2424, 575)
+shape = SubResource("RectangleShape2D_3gll7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room7/DoorRight"]
-position = Vector2(1774, 1308)
-scale = Vector2(0.76, 1)
-shape = SubResource("RectangleShape2D_vn12t")
+[node name="Room8" type="Node" parent="Rooms"]
 
-[node name="Room8" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="DoorUp" type="Area2D" parent="Rooms/Room8"]
+position = Vector2(-889, 289)
 
-[node name="DoorRight" type="Area2D" parent="Room8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room8/DoorUp"]
+position = Vector2(1535, 596)
+shape = SubResource("RectangleShape2D_gwajl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room8/DoorRight"]
-position = Vector2(641, 873)
-scale = Vector2(1, 0.600002)
-shape = SubResource("RectangleShape2D_ju7sj")
+[node name="Room9" type="Node" parent="Rooms"]
 
-[node name="Room9" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="DoorUp" type="Area2D" parent="Rooms/Room9"]
+position = Vector2(-445, 289)
 
-[node name="DoorRight" type="Area2D" parent="Room9"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room9/DoorUp"]
+position = Vector2(1535, 596)
+shape = SubResource("RectangleShape2D_gwajl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room9/DoorRight"]
-position = Vector2(1092, 874)
-scale = Vector2(1, 0.68)
-shape = SubResource("RectangleShape2D_ju7sj")
+[node name="DoorDown" type="Area2D" parent="Rooms/Room9"]
+position = Vector2(1, 288)
 
-[node name="Room10" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room9/DoorDown"]
+position = Vector2(1089, 859)
+shape = SubResource("RectangleShape2D_3gll7")
 
-[node name="DoorRight" type="Area2D" parent="Room10"]
+[node name="Room10" type="Node" parent="Rooms"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room10/DoorRight"]
-position = Vector2(1091, 1162)
-scale = Vector2(1, 0.480002)
-shape = SubResource("RectangleShape2D_ju7sj")
+[node name="DoorUp" type="Area2D" parent="Rooms/Room10"]
+position = Vector2(-444, 575)
 
-[node name="Room11" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room10/DoorUp"]
+position = Vector2(1535, 596)
+shape = SubResource("RectangleShape2D_gwajl")
 
-[node name="DoorRight" type="Area2D" parent="Room11"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room10"]
+position = Vector2(3, 579)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room11/DoorRight"]
-position = Vector2(1979, 1161)
-scale = Vector2(1, 0.64)
-shape = SubResource("RectangleShape2D_ju7sj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room10/DoorRight"]
+position = Vector2(1318, 729)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room12" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="Room11" type="Node" parent="Rooms"]
 
-[node name="DoorRight" type="Area2D" parent="Room12"]
+[node name="DoorRight" type="Area2D" parent="Rooms/Room11"]
+position = Vector2(447, 578)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room12/DoorRight"]
-position = Vector2(1535, 584)
-scale = Vector2(1, 0.48)
-shape = SubResource("RectangleShape2D_ju7sj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room11/DoorRight"]
+position = Vector2(1318, 729)
+shape = SubResource("RectangleShape2D_4hdod")
 
-[node name="Room13" type="Node" parent="."]
-script = ExtResource("5_0yqlx")
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room11"]
+position = Vector2(0, 579)
 
-[node name="DoorRight" type="Area2D" parent="Room13"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room11/DoorLeft"]
+position = Vector2(1337, 728)
+shape = SubResource("RectangleShape2D_jdn0i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room13/DoorRight"]
-position = Vector2(2426, 584)
-scale = Vector2(1, 0.36)
-shape = SubResource("RectangleShape2D_ju7sj")
+[node name="Room12" type="Node" parent="Rooms"]
 
-[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
-[connection signal="body_entered" from="Room1/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room2/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room3/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room4/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room5/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room6/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room7/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room8/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room9/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room10/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room11/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room12/DoorRight" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Room13/DoorRight" to="Player" method="_on_final_body_entered"]
+[node name="DoorLeft" type="Area2D" parent="Rooms/Room12"]
+position = Vector2(0, 579)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room12/DoorLeft"]
+position = Vector2(1781, 728)
+shape = SubResource("RectangleShape2D_jdn0i")
+
+[node name="Room13" type="Node" parent="Rooms"]
+
+[node name="DoorUp" type="Area2D" parent="Rooms/Room13"]
+position = Vector2(-444, 575)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room13/DoorUp"]
+position = Vector2(2425, 599)
+shape = SubResource("RectangleShape2D_gwajl")
+
+[node name="Room14" type="Node" parent="Rooms"]
+
+[node name="DoorDown" type="Area2D" parent="Rooms/Room14"]
+position = Vector2(892, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room14/DoorDown"]
+position = Vector2(1089, 859)
+shape = SubResource("RectangleShape2D_3gll7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Resouce Display" parent="CanvasLayer" instance=ExtResource("4_43ksk")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Location Title" parent="CanvasLayer" instance=ExtResource("5_pj7me")]
+scale = Vector2(0.997684, 1)
+
+[connection signal="body_entered" from="Rooms/Room1/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room2/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room2/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room2/DoorDown" to="Player" method="_on_door_down_body_entered"]
+[connection signal="body_entered" from="Rooms/Room3/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room3/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room3/DoorDown" to="Player" method="_on_door_down_body_entered"]
+[connection signal="body_entered" from="Rooms/Room4/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room4/DoorUp" to="Player" method="_on_door_up_body_entered"]
+[connection signal="body_entered" from="Rooms/Room5/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room5/DoorDown" to="Player" method="_on_door_down_body_entered"]
+[connection signal="body_entered" from="Rooms/Room6/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room6/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room7/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room7/DoorDown" to="Player" method="_on_final_body_entered"]
+[connection signal="body_entered" from="Rooms/Room8/DoorUp" to="Player" method="_on_door_up_body_entered"]
+[connection signal="body_entered" from="Rooms/Room9/DoorUp" to="Player" method="_on_door_up_body_entered"]
+[connection signal="body_entered" from="Rooms/Room9/DoorDown" to="Player" method="_on_door_down_body_entered"]
+[connection signal="body_entered" from="Rooms/Room10/DoorUp" to="Player" method="_on_door_up_body_entered"]
+[connection signal="body_entered" from="Rooms/Room10/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room11/DoorRight" to="Player" method="_on_door_right_body_entered"]
+[connection signal="body_entered" from="Rooms/Room11/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room12/DoorLeft" to="Player" method="_on_door_left_body_entered"]
+[connection signal="body_entered" from="Rooms/Room13/DoorUp" to="Player" method="_on_door_up_body_entered"]
+[connection signal="body_entered" from="Rooms/Room14/DoorDown" to="Player" method="_on_door_down_body_entered"]

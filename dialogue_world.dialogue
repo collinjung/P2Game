@@ -1,0 +1,42 @@
+~ squeaks_intro
+
+if Global.encountered_squeaks == false:
+	Squeaks: Welcome to Squeaky Cavern!
+	- Thanks!
+		Squeaks: I'm just a small mouse, but our town's full of charm, With cozy inns, lively markets, and farms aplenty on each farm.
+
+	- Who are you?
+		Squeaks: I'm just a small mouse, but our town's full of charm, With cozy inns, lively markets, and crops aplenty on each farm.
+
+	Squeaks: If you're weary, there's a tavern where you can rest your feet, And if you're hungry, our cheese is a treat you must eat!
+	- Sounds lovely, but I need to return home. 
+
+	Squeaks: Long ago, there were rumors of a mouse who reached the stars in a flying contraption. It’s said that the parts of his contraption have  since been lost in the cave.
+	- How can I build this "flying contraption"?
+
+	Squeaks: We can help you if you find the materials, but it'll be dangerous... there have been reports of foul play by horrendous creatures that plague the chambers below.
+	- Oh no.
+
+	Squeaks: We’ll give you a pickaxe to help you collect resources.
+	- Awesome!
+
+	Squeaks: You’ll need to collect 15 rocks, 10 steel ore, and 5 diamond ore to build an enchanted compass. 
+	- ...
+	Squeaks: He who wields the compass will have a clear path to their deepest desire. 
+	- ...
+	Squeaks: If you wish to go home, then this may help you in your quest
+	- Thank you!
+
+else:
+	Squeaks: [[Hi|Hello|Hey]], again!
+	- What do I need to collect, again?
+		Squeaks: You’ll need to collect 15 rocks, 10 steel ore, and 5 diamond ore to build an enchanted compass. 
+		- Ok, Thanks!
+			Squeaks: Good luck!
+	- Bye!
+		Squeaks: Bye! Good luck!
+
+=> END
+#Whiskers: You really conquered the cave!",
+#Whiskers: Bye!
+

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcqg85eh5xnx3"]
+
+[ext_resource type="VideoStream" path="res://Videos/bigger-cutscene-test.ogv" id="1_ymu3t"]
+
+[node name="Final Scene" type="Node2D"]
+
+[node name="Final Scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Final Scene"]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+stream = ExtResource("1_ymu3t")
+autoplay = true
+expand = true

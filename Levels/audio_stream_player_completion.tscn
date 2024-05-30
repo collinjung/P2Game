@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2skq7ii0vant"]
+
+[ext_resource type="AudioStream" uid="uid://dsjjpwrxtjen2" path="res://Audio/key_item.wav" id="1_y5nik"]
+
+[node name="AudioStreamPlayer_Completion" type="AudioStreamPlayer"]
+stream = ExtResource("1_y5nik")
+volume_db = -15.0

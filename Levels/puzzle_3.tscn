@@ -1,13 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://d150fubbwg6d5"]
+[gd_scene load_steps=25 format=3 uid="uid://d150fubbwg6d5"]
 
 [ext_resource type="Script" path="res://Levels/puzzle_1.gd" id="1_tkx06"]
 [ext_resource type="Script" path="res://Levels/3boulders.gd" id="2_abyu2"]
 [ext_resource type="Texture2D" uid="uid://dqw7vimg0lap7" path="res://Art/P2 Art/map.PNG" id="2_lwtxv"]
 [ext_resource type="Texture2D" uid="uid://ckdu1v7t3kq41" path="res://Art/P2 Art/247G_tileset.PNG" id="3_dfn6u"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="4_kg10t"]
+[ext_resource type="Texture2D" uid="uid://yeskc4c2afqw" path="res://Art/tileset_update.PNG" id="5_1t46y"]
 [ext_resource type="Texture2D" uid="uid://dqcwvboqcrrcd" path="res://Art/P2 Art/boulder.png" id="5_727ph"]
+[ext_resource type="AudioStream" uid="uid://dsjjpwrxtjen2" path="res://Audio/key_item.wav" id="6_8npf6"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="7_kpww0"]
-[ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="8_xxluv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ywha"]
 
@@ -439,15 +440,15 @@ texture_region_size = Vector2i(32, 32)
 10:3/0 = 0
 10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:3/0/physics_layer_0/angular_velocity = 0.0
-10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.7143, -13.7143, 16, -13.7143, 16, 13.7143, -13.7143, 13.7143)
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 16, -12, 16, 12, -12, 12)
 11:3/0 = 0
 11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:3/0/physics_layer_0/angular_velocity = 0.0
-11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -13.7143, 16, 13.7143, -16, 13.7143, -16, -13.7143)
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -12, 16, -12, 16, 12, -16, 12)
 12:3/0 = 0
 12:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:3/0/physics_layer_0/angular_velocity = 0.0
-12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -13.7143, 16, 13.7143, -16, 13.7143, -16, -13.7143)
+12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -12, 16, -12, 16, 12, -16, 12)
 15:3/0 = 0
 15:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:3/0/physics_layer_0/angular_velocity = 0.0
@@ -639,15 +640,21 @@ collision_mask = 3
 script = ExtResource("7_kpww0")
 
 [node name="Sprite2D" type="Sprite2D" parent="3boulders/NextLevel"]
-position = Vector2(1.00002, 1.00001)
-scale = Vector2(0.0299928, 0.0301267)
-texture = ExtResource("8_xxluv")
+position = Vector2(1.00001, 4)
+scale = Vector2(0.75, 0.8125)
+texture = ExtResource("5_1t46y")
+region_enabled = true
+region_rect = Rect2(64, 192, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="3boulders/NextLevel"]
 light_mask = 3
 visibility_layer = 3
 position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_a3run")
+
+[node name="AudioStreamPlayer_Completion" type="AudioStreamPlayer" parent="3boulders"]
+stream = ExtResource("6_8npf6")
+volume_db = -15.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rudgw")
@@ -760,6 +767,13 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rocks4"]
 position = Vector2(-62.75, -79)
+shape = SubResource("RectangleShape2D_svnfr")
+
+[node name="rocks5" type="StaticBody2D" parent="rocks"]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rocks5"]
+position = Vector2(161, -112)
 shape = SubResource("RectangleShape2D_svnfr")
 
 [connection signal="body_entered" from="3boulders/NextLevel" to="3boulders/NextLevel" method="_on_body_entered"]
