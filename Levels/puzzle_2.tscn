@@ -1,13 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://rciwn4u2momg"]
+[gd_scene load_steps=27 format=3 uid="uid://rciwn4u2momg"]
 
-[ext_resource type="Script" path="res://Levels/puzzle_1.gd" id="1_neja4"]
+[ext_resource type="Script" path="res://Levels/puzzle.gd" id="1_lqn7b"]
 [ext_resource type="Texture2D" uid="uid://dqw7vimg0lap7" path="res://Art/P2 Art/map.PNG" id="2_ks0sg"]
 [ext_resource type="Texture2D" uid="uid://ckdu1v7t3kq41" path="res://Art/P2 Art/247G_tileset.PNG" id="3_rpbwf"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="4_51y2k"]
-[ext_resource type="Script" path="res://Levels/boulders.gd" id="5_1k7vi"]
+[ext_resource type="Script" path="res://Levels/boulders_p2.gd" id="5_1k7vi"]
 [ext_resource type="Texture2D" uid="uid://dqcwvboqcrrcd" path="res://Art/P2 Art/boulder.png" id="5_t17g5"]
+[ext_resource type="Script" path="res://Levels/boulder_green.gd" id="6_b8i7p"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="7_1n2a2"]
-[ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="8_u01k1"]
+[ext_resource type="Texture2D" uid="uid://yeskc4c2afqw" path="res://Art/tileset_update.PNG" id="8_avmy6"]
+[ext_resource type="Script" path="res://Levels/boulder_red.gd" id="8_txisu"]
+[ext_resource type="AudioStream" uid="uid://dsjjpwrxtjen2" path="res://Audio/key_item.wav" id="9_b4mjr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swq6p"]
 texture = ExtResource("2_ks0sg")
@@ -429,15 +432,15 @@ texture_region_size = Vector2i(32, 32)
 10:3/0 = 0
 10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:3/0/physics_layer_0/angular_velocity = 0.0
-10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -12, 16, 12, -16, 12, -16, -12)
 11:3/0 = 0
 11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:3/0/physics_layer_0/angular_velocity = 0.0
-11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -12, 16, 12, -16, 12, -16, -12)
 12:3/0 = 0
 12:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:3/0/physics_layer_0/angular_velocity = 0.0
-12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -12, 16, 12, -16, 12, -16, -12)
 15:3/0 = 0
 15:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:3/0/physics_layer_0/angular_velocity = 0.0
@@ -522,7 +525,7 @@ texture_region_size = Vector2i(32, 32)
 10:4/0 = 0
 10:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:4/0/physics_layer_0/angular_velocity = 0.0
-10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -12, 16, 12, -16, 12, -16, -12)
 14:4/0 = 0
 14:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:4/0/physics_layer_0/angular_velocity = 0.0
@@ -566,13 +569,13 @@ size = Vector2(16.875, 269.5)
 size = Vector2(16.875, 269.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54rcs"]
-size = Vector2(96.5, 34)
+size = Vector2(93.8125, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpyaa"]
-size = Vector2(44.25, 94)
+size = Vector2(41.25, 90)
 
 [node name="puzzle2" type="Node2D"]
-script = ExtResource("1_neja4")
+script = ExtResource("1_lqn7b")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rudgw")
@@ -584,7 +587,7 @@ layer_0/tile_data = PackedInt32Array(65534, 196608, 1, -2, 196608, 1, -1, 196608
 tile_set = SubResource("TileSet_r2guc")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-131072, 655360, 3, -131069, 786432, 3, -131071, 720896, 3, -131070, 655360, 4, -196607, 655360, 4, -196606, 786432, 3, 0, 655360, 3, 1, 720896, 3, 3, 786432, 3, 2, 655360, 3, 65537, 655360, 3, 65538, 786432, 3, -65538, 786432, 3, -65540, 655360, 3, 65532, 655360, 3, 65534, 786432, 3, -65539, 720896, 3, 65533, 720896, 3, 196605, 655360, 3, -196611, 655360, 3, -262139, 393216, 3, 131077, 458752, 3, -65536, 655360, 4, -65533, 655360, 4, -65535, 720896, 3, -65534, 720896, 3)
+layer_0/tile_data = PackedInt32Array(-131072, 655360, 3, -131069, 786432, 3, -131071, 720896, 3, -131070, 655360, 4, -196607, 655360, 4, -196606, 786432, 3, 0, 655360, 3, 1, 720896, 3, 3, 786432, 3, 2, 655360, 3, 65537, 655360, 3, 65538, 786432, 3, -65538, 720896, 268435459, -65540, 655360, 3, 65532, 655360, 3, 65534, 720896, 268435459, -65539, 786432, 3, 65533, 786432, 3, 196605, 655360, 3, -196611, 655360, 3, -262139, 393216, 3, 131077, 458752, 3, -65536, 655360, 4, -65533, 655360, 4, -65535, 720896, 3, -65534, 720896, 3)
 
 [node name="PlayerCat" parent="." instance=ExtResource("4_51y2k")]
 position = Vector2(-176, -14)
@@ -599,6 +602,7 @@ shape = SubResource("RectangleShape2D_lo2yv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -24)
+offset = Vector2(0, 10)
 zoom = Vector2(1.1, 0.9)
 drag_left_margin = 0.0
 drag_top_margin = 0.0
@@ -616,6 +620,7 @@ gravity_scale = 0.0
 lock_rotation = true
 freeze_mode = 1
 linear_damp = 11.454
+script = ExtResource("6_b8i7p")
 
 [node name="Sprite2D" type="Sprite2D" parent="boulders/boulder_green"]
 modulate = Color(0.517704, 1, 0.469158, 1)
@@ -635,6 +640,7 @@ gravity_scale = 0.0
 lock_rotation = true
 freeze_mode = 1
 linear_damp = 11.454
+script = ExtResource("8_txisu")
 
 [node name="Sprite2D" type="Sprite2D" parent="boulders/boulder_red"]
 modulate = Color(0.894014, 0.215661, 0.249572, 1)
@@ -653,26 +659,30 @@ collision_mask = 3
 script = ExtResource("7_1n2a2")
 
 [node name="Sprite2D" type="Sprite2D" parent="boulders/NextLevel"]
-position = Vector2(1.00002, 1.00001)
-scale = Vector2(0.0299928, 0.0301267)
-texture = ExtResource("8_u01k1")
+position = Vector2(1.00001, 3.5)
+scale = Vector2(0.75, 0.84375)
+texture = ExtResource("8_avmy6")
+region_enabled = true
+region_rect = Rect2(32, 192, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boulders/NextLevel"]
 position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_h5i4d")
 
+[node name="AudioStreamPlayer_Completion" type="AudioStreamPlayer" parent="boulders"]
+stream = ExtResource("9_b4mjr")
+volume_db = -15.0
+
 [node name="green_goal" type="Area2D" parent="."]
-position = Vector2(0, -31)
+position = Vector2(176, -110)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="green_goal"]
-position = Vector2(175.5, -78)
 shape = SubResource("RectangleShape2D_h8d6r")
 
 [node name="red_goal" type="Area2D" parent="."]
-position = Vector2(0, 31)
+position = Vector2(176, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="red_goal"]
-position = Vector2(176, 49)
 shape = SubResource("RectangleShape2D_h8d6r")
 
 [node name="walls" type="Node2D" parent="."]
@@ -711,14 +721,14 @@ shape = SubResource("RectangleShape2D_6ne34")
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rocks3"]
-position = Vector2(-80, 15)
+position = Vector2(-79, 15)
 shape = SubResource("RectangleShape2D_54rcs")
 
 [node name="rocks4" type="StaticBody2D" parent="rocks"]
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rocks4"]
-position = Vector2(-80, -49)
+position = Vector2(-79.9062, -46.5)
 shape = SubResource("RectangleShape2D_54rcs")
 
 [node name="rocks5" type="StaticBody2D" parent="rocks"]
@@ -729,8 +739,11 @@ position = Vector2(106.25, -13)
 shape = SubResource("RectangleShape2D_vpyaa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rocks5/CollisionShape2D"]
-position = Vector2(-85.125, -4)
+position = Vector2(-83.625, -2)
 shape = SubResource("RectangleShape2D_vpyaa")
+
+[node name="rocks6" type="StaticBody2D" parent="rocks"]
+collision_mask = 7
 
 [connection signal="body_entered" from="boulders/NextLevel" to="boulders/NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="green_goal" to="boulders" method="_on_green_goal_body_entered"]
