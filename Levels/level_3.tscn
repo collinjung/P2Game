@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnrygo5ug0p28"]
+[gd_scene load_steps=13 format=3 uid="uid://bnrygo5ug0p28"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_tbm6i"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_0jf43"]
 [ext_resource type="Texture2D" uid="uid://dvng5o1deox1u" path="res://Art/247G tileset.png" id="4_7o2kn"]
 [ext_resource type="Texture2D" uid="uid://tx2kxd4c0rq0" path="res://Art/247G_tileset_5_29.png" id="4_w8gi7"]
+[ext_resource type="PackedScene" uid="uid://cf3dp7s3327la" path="res://GUI/dungeon_name3.tscn" id="5_hamwm"]
+[ext_resource type="PackedScene" uid="uid://o0r7vf4gybfp" path="res://GUI/resouce_display.tscn" id="6_q8cju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55cug"]
 size = Vector2(72, 8)
@@ -264,6 +266,12 @@ region_rect = Rect2(352, 192, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key2"]
 position = Vector2(142, 591)
 shape = SubResource("RectangleShape2D_fychb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5_hamwm")]
+
+[node name="Resouce Display" parent="CanvasLayer" instance=ExtResource("6_q8cju")]
 
 [connection signal="body_entered" from="Rooms/Room1/DoorDown" to="Player" method="_on_door_down_body_entered"]
 [connection signal="body_entered" from="Rooms/Room2/DoorDown" to="Player" method="_on_door_down_body_entered"]

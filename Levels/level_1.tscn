@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqve5rwndb4np"]
+[gd_scene load_steps=20 format=3 uid="uid://dqve5rwndb4np"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_i8kvh"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_rwds7"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="10_fu56x"]
 [ext_resource type="PackedScene" uid="uid://8psxtt8rvs2p" path="res://Characters/squeaks.tscn" id="11_4kbjg"]
 [ext_resource type="AudioStream" uid="uid://6krfaxtw4awd" path="res://Audio/mining_rock_sound.mp3" id="11_741dd"]
+[ext_resource type="PackedScene" uid="uid://o0r7vf4gybfp" path="res://GUI/resouce_display.tscn" id="12_iv0o4"]
+[ext_resource type="PackedScene" uid="uid://bwoedkb1ot1ly" path="res://GUI/dungeon_name1.tscn" id="13_sdc4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye5y7"]
 size = Vector2(24, 27)
@@ -625,6 +627,12 @@ shape = SubResource("RectangleShape2D_wtj2b")
 
 [node name="Squeaks" parent="." instance=ExtResource("11_4kbjg")]
 position = Vector2(86, 131)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Resouce Display" parent="CanvasLayer" instance=ExtResource("12_iv0o4")]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("13_sdc4c")]
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="Rooms/Room1/DoorRight" to="Player" method="_on_door_right_body_entered"]

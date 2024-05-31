@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjbmm23i100c"]
+[gd_scene load_steps=6 format=3 uid="uid://cjbmm23i100c"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_ykh1x"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_q0fnm"]
 [ext_resource type="PackedScene" uid="uid://bpokfx5dd48y1" path="res://Characters/whiskers.tscn" id="3_caom7"]
+[ext_resource type="PackedScene" uid="uid://bgms21x73cefl" path="res://GUI/dungeon_name4.tscn" id="4_yum3a"]
+[ext_resource type="PackedScene" uid="uid://o0r7vf4gybfp" path="res://GUI/resouce_display.tscn" id="5_4t6pm"]
 
 [node name="Level4" type="Node2D"]
 position = Vector2(170, 110)
@@ -35,3 +37,9 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Whiskers" parent="." instance=ExtResource("3_caom7")]
 position = Vector2(214, 50)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_yum3a")]
+
+[node name="Resouce Display" parent="CanvasLayer" instance=ExtResource("5_4t6pm")]

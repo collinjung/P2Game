@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7fkk4xrfevcg"]
+
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="1_myvht"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="L1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 16.0
+offset_right = 461.0
+offset_bottom = 51.0
+scale = Vector2(1, 1.00318)
+theme_override_fonts/font = ExtResource("1_myvht")
+text = "Level 2
+
+
+"
+horizontal_alignment = 2

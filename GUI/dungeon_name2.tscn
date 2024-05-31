@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgpe20hlrsibw"]
+
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="1_ni2qe"]
+[ext_resource type="PackedScene" uid="uid://b7fkk4xrfevcg" path="res://GUI/level2_title_display.tscn" id="2_ncabq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 51.0
+scale = Vector2(1, 1.00318)
+theme_override_fonts/font = ExtResource("1_ni2qe")
+text = "Squeaky Cavern
+
+"
+
+[node name="Control" parent="." instance=ExtResource("2_ncabq")]
+layout_mode = 1
