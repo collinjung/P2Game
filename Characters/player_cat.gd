@@ -32,7 +32,7 @@ func _input(event):
 		animation.play("mining")
 	return event
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed('spell'):
 		print("fireball") 
 	if Input.is_action_just_pressed('reset') and camera and player:

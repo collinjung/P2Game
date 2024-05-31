@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqve5rwndb4np"]
+[gd_scene load_steps=18 format=3 uid="uid://dqve5rwndb4np"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_i8kvh"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_rwds7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="9_v2id4"]
 [ext_resource type="Script" path="res://Objects/rock.gd" id="9_w8po1"]
 [ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="10_fu56x"]
+[ext_resource type="PackedScene" uid="uid://8psxtt8rvs2p" path="res://Characters/squeaks.tscn" id="11_4kbjg"]
 [ext_resource type="AudioStream" uid="uid://6krfaxtw4awd" path="res://Audio/mining_rock_sound.mp3" id="11_741dd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye5y7"]
@@ -40,7 +41,7 @@ zoom = Vector2(1.1, 0.9)
 
 [node name="Player" parent="." instance=ExtResource("1_i8kvh")]
 z_as_relative = false
-position = Vector2(224, 144)
+position = Vector2(64, 136)
 rotation = 0.00235937
 collision_layer = 3
 collision_mask = 7
@@ -179,16 +180,6 @@ shape = SubResource("RectangleShape2D_ntr08")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room8/DoorRight"]
 position = Vector2(1349, 713)
 shape = SubResource("RectangleShape2D_ntr08")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 48.0
-offset_top = 232.0
-offset_right = 88.0
-offset_bottom = 255.0
-text = "0"
 
 [node name="Mineable" type="Node" parent="."]
 
@@ -631,6 +622,9 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mineable/Rock20/Rock_Area2"]
 shape = SubResource("RectangleShape2D_wtj2b")
+
+[node name="Squeaks" parent="." instance=ExtResource("11_4kbjg")]
+position = Vector2(86, 131)
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="Rooms/Room1/DoorRight" to="Player" method="_on_door_right_body_entered"]

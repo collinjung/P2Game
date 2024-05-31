@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpokfx5dd48y1"]
+
+[ext_resource type="Script" path="res://Characters/whiskers.gd" id="1_tdpx4"]
+[ext_resource type="Texture2D" uid="uid://rg5jpy7qh5y4" path="res://Art/P2 Art/mouse sprite sheet.png" id="2_h4x2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbce5"]
+atlas = ExtResource("2_h4x2c")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhuey"]
+atlas = ExtResource("2_h4x2c")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnrow"]
+atlas = ExtResource("2_h4x2c")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6erd"]
+atlas = ExtResource("2_h4x2c")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kucl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbce5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhuey")
+}],
+"loop": true,
+"name": &"chatting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnrow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6erd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqop7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1llr"]
+radius = 24.0
+
+[node name="Whiskers" type="CharacterBody2D"]
+script = ExtResource("1_tdpx4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3kucl")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vqop7")
+
+[node name="Chat Detection Area" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 3
+
+[node name="Detection Area" type="CollisionShape2D" parent="Chat Detection Area"]
+shape = SubResource("CircleShape2D_c1llr")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Chat Detection Area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="Chat Detection Area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

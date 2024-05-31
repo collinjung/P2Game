@@ -29,6 +29,11 @@ func load_level(level_name : String):
 		
 		
 func _on_Load_1_pressed():
-	load_level("level_1")
+	var video_scene = preload("res://Cut Scenes/cut_scene.tscn")
+	var video_instance = video_scene.instantiate()
+	get_tree().current_scene.queue_free()
+	get_tree().root.add_child(video_instance)
+	get_tree().current_scene = video_instance
 
-		
+func _on_quit_pressed():
+	get_tree().quit()

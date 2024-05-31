@@ -1,0 +1,209 @@
+[gd_scene load_steps=26 format=3 uid="uid://8psxtt8rvs2p"]
+
+[ext_resource type="Script" path="res://Characters/squeaks.gd" id="1_osfy4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7y7n5"]
+load_path = "res://.godot/imported/mouse sprite sheet.png-28da2c481a16898fecc05202d5f8f05b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg884"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alcmv"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plrq"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq1p0"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjf0k"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2xk0"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c60yg"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw6yr"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0lqa"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyygq"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbrvj"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa5dv"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nasfk"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4eb5"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7w6k"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd4fi"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvx3x"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tdoo"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ifph"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btsuq"]
+atlas = SubResource("CompressedTexture2D_7y7n5")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kucl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg884")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alcmv")
+}],
+"loop": true,
+"name": &"chatting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4plrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq1p0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjf0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2xk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c60yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw6yr")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0lqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyygq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbrvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa5dv")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nasfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4eb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7w6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd4fi")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvx3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tdoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ifph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btsuq")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqop7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1llr"]
+radius = 24.0
+
+[node name="Squeaks" type="CharacterBody2D"]
+script = ExtResource("1_osfy4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3kucl")
+animation = &"chatting"
+frame_progress = 0.889782
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vqop7")
+
+[node name="Chat Detection Area" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 3
+
+[node name="Detection Area" type="CollisionShape2D" parent="Chat Detection Area"]
+shape = SubResource("CircleShape2D_c1llr")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Chat Detection Area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="Chat Detection Area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

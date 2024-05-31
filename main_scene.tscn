@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf5lc88avfjrd"]
+[gd_scene load_steps=4 format=3 uid="uid://bf5lc88avfjrd"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_otlu0"]
+[ext_resource type="Theme" uid="uid://b4a2khy64nn7a" path="res://default_button.tres" id="2_1uwdj"]
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="3_g6vnl"]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource("1_otlu0")
@@ -21,15 +23,33 @@ offset_bottom = 23.0
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 134.0
-offset_bottom = 61.0
+offset_right = 496.0
+offset_bottom = 288.0
 
 [node name="Level 1" type="Button" parent="Menu"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 11.0
-offset_right = 117.0
-offset_bottom = 42.0
+offset_left = 192.0
+offset_top = 152.0
+offset_right = 288.0
+offset_bottom = 183.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_1uwdj")
+theme_override_fonts/font = ExtResource("3_g6vnl")
+theme_override_font_sizes/font_size = 16
 text = "Start Game"
 
+[node name="Quit" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 197.0
+offset_right = 288.0
+offset_bottom = 228.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_1uwdj")
+theme_override_fonts/font = ExtResource("3_g6vnl")
+theme_override_font_sizes/font_size = 16
+text = "Quit
+"
+
 [connection signal="pressed" from="Menu/Level 1" to="." method="_on_Load_1_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
