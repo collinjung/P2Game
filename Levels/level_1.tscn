@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqve5rwndb4np"]
+[gd_scene load_steps=27 format=3 uid="uid://dqve5rwndb4np"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_i8kvh"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_rwds7"]
@@ -11,8 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://clphksm7s4b" path="res://Art/P2 Art/next_level_icon.png" id="10_fu56x"]
 [ext_resource type="PackedScene" uid="uid://8psxtt8rvs2p" path="res://Characters/squeaks.tscn" id="11_4kbjg"]
 [ext_resource type="AudioStream" uid="uid://6krfaxtw4awd" path="res://Audio/mining_rock_sound.mp3" id="11_741dd"]
-[ext_resource type="PackedScene" uid="uid://o0r7vf4gybfp" path="res://GUI/resouce_display.tscn" id="12_iv0o4"]
+[ext_resource type="AudioStream" uid="uid://baqpddub1jwps" path="res://Audio/resource_completed_sound.wav" id="11_c6tqk"]
 [ext_resource type="PackedScene" uid="uid://bwoedkb1ot1ly" path="res://GUI/dungeon_name1.tscn" id="13_sdc4c"]
+[ext_resource type="Texture2D" uid="uid://khvdt6kafm5t" path="res://Art/diamond.png" id="14_vqi22"]
+[ext_resource type="Texture2D" uid="uid://f6gs8sipc2b7" path="res://GUI/iron_icon.png" id="15_6sfeb"]
+[ext_resource type="Texture2D" uid="uid://612d44byingg" path="res://Art/stone.png" id="16_fv3gj"]
+[ext_resource type="Texture2D" uid="uid://kvvmxqdpyg2e" path="res://Art/basket_transparent.png" id="17_fcye7"]
+[ext_resource type="Texture2D" uid="uid://3306e0b1mlgt" path="res://Art/cloth_transparent.png" id="18_k7pxd"]
+[ext_resource type="Texture2D" uid="uid://dffckw08axf7a" path="res://Art/rope_transparent.png" id="20_6wv68"]
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="20_kraj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye5y7"]
 size = Vector2(24, 27)
@@ -42,6 +49,7 @@ anchor_mode = 0
 zoom = Vector2(1.1, 0.9)
 
 [node name="Player" parent="." instance=ExtResource("1_i8kvh")]
+z_index = 2
 z_as_relative = false
 position = Vector2(64, 136)
 rotation = 0.00235937
@@ -625,14 +633,87 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mineable/Rock20/Rock_Area2"]
 shape = SubResource("RectangleShape2D_wtj2b")
 
+[node name="AudioStreamPlayer2D_RocksCompleted" type="AudioStreamPlayer2D" parent="Mineable"]
+stream = ExtResource("11_c6tqk")
+volume_db = -15.0
+
 [node name="Squeaks" parent="." instance=ExtResource("11_4kbjg")]
 position = Vector2(86, 131)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Resouce Display" parent="CanvasLayer" instance=ExtResource("12_iv0o4")]
-
 [node name="Control" parent="CanvasLayer" instance=ExtResource("13_sdc4c")]
+
+[node name="diamond" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 17.0
+offset_top = 254.0
+offset_right = 70.0
+offset_bottom = 278.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/diamond"]
+layout_mode = 2
+texture = ExtResource("14_vqi22")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/diamond"]
+layout_mode = 2
+text = "0/5"
+
+[node name="iron" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 56.0
+offset_top = 254.0
+offset_right = 117.0
+offset_bottom = 277.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/iron"]
+layout_mode = 2
+texture = ExtResource("15_6sfeb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/iron"]
+layout_mode = 2
+text = "0/10"
+
+[node name="stone" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 104.0
+offset_top = 255.0
+offset_right = 168.0
+offset_bottom = 278.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/stone"]
+layout_mode = 2
+texture = ExtResource("16_fv3gj")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/stone"]
+layout_mode = 2
+text = "0/15"
+
+[node name="rope" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(368, 256)
+texture = ExtResource("20_6wv68")
+
+[node name="basket" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(400, 256)
+texture = ExtResource("17_fcye7")
+
+[node name="cloth" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(432, 256)
+texture = ExtResource("18_k7pxd")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 184.0
+offset_top = 253.0
+offset_right = 312.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("20_kraj4")
+text = "press 'q' to chat"
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="Rooms/Room1/DoorRight" to="Player" method="_on_door_right_body_entered"]
