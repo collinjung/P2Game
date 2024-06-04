@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://dqve5rwndb4np"]
+[gd_scene load_steps=31 format=3 uid="uid://dqve5rwndb4np"]
 
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_i8kvh"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_rwds7"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_rjkko"]
 [ext_resource type="Script" path="res://Levels/Room1.gd" id="5_sfk1o"]
+[ext_resource type="Script" path="res://Levels/Room8.gd" id="7_8nw5w"]
 [ext_resource type="PackedScene" uid="uid://dbhlu0fo7fyod" path="res://Objects/rock.tscn" id="8_8c0bs"]
 [ext_resource type="Texture2D" uid="uid://tx2kxd4c0rq0" path="res://Art/247G_tileset_5_29.png" id="9_av07p"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="9_v2id4"]
@@ -184,7 +185,7 @@ position = Vector2(460, 715)
 shape = SubResource("RectangleShape2D_ntr08")
 
 [node name="Room8" type="Node" parent="Rooms"]
-script = ExtResource("5_sfk1o")
+script = ExtResource("7_8nw5w")
 
 [node name="DoorLeft" type="Area2D" parent="Rooms/Room8"]
 
@@ -197,6 +198,14 @@ shape = SubResource("RectangleShape2D_ntr08")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room8/DoorRight"]
 position = Vector2(1349, 713)
 shape = SubResource("RectangleShape2D_ntr08")
+
+[node name="Warning" type="Label" parent="Rooms/Room8"]
+offset_left = 999.0
+offset_top = 814.0
+offset_right = 1302.0
+offset_bottom = 837.0
+theme_override_fonts/font = ExtResource("20_kraj4")
+text = "you need at least 15 stone to proceed!"
 
 [node name="Mineable" type="Node" parent="."]
 

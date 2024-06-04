@@ -1,11 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://bnrygo5ug0p28"]
+[gd_scene load_steps=31 format=3 uid="uid://bnrygo5ug0p28"]
 
 [ext_resource type="Script" path="res://Levels/level_3.gd" id="1_jbep7"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_tbm6i"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_0jf43"]
 [ext_resource type="Texture2D" uid="uid://dvng5o1deox1u" path="res://Art/247G tileset.png" id="4_7o2kn"]
 [ext_resource type="Texture2D" uid="uid://tx2kxd4c0rq0" path="res://Art/247G_tileset_5_29.png" id="4_w8gi7"]
+[ext_resource type="Script" path="res://Levels/Room10.gd" id="5_gwiq2"]
 [ext_resource type="PackedScene" uid="uid://cf3dp7s3327la" path="res://GUI/dungeon_name3.tscn" id="5_hamwm"]
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="6_b101i"]
 [ext_resource type="Texture2D" uid="uid://khvdt6kafm5t" path="res://Art/diamond.png" id="6_j18yg"]
 [ext_resource type="Texture2D" uid="uid://f6gs8sipc2b7" path="res://GUI/iron_icon.png" id="7_k2tuy"]
 [ext_resource type="Texture2D" uid="uid://612d44byingg" path="res://Art/stone.png" id="8_02m5n"]
@@ -239,6 +241,7 @@ position = Vector2(1092, 862)
 shape = SubResource("RectangleShape2D_55cug")
 
 [node name="Room10" type="Node" parent="Rooms"]
+script = ExtResource("5_gwiq2")
 
 [node name="DoorDown" type="Area2D" parent="Rooms/Room10"]
 position = Vector2(887, 578)
@@ -254,6 +257,22 @@ position = Vector2(1060, 399)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room10/DoorRight"]
 position = Vector2(705, 618)
 shape = SubResource("RectangleShape2D_nt260")
+
+[node name="Warning" type="Label" parent="Rooms/Room10"]
+offset_left = 1399.0
+offset_top = 1108.0
+offset_right = 1723.0
+offset_bottom = 1131.0
+theme_override_fonts/font = ExtResource("6_b101i")
+text = "you need at least 5 diamond to proceed!"
+
+[node name="Key_Warning" type="Label" parent="Rooms/Room10"]
+offset_left = 1489.0
+offset_top = 1085.0
+offset_right = 1594.0
+offset_bottom = 1108.0
+theme_override_fonts/font = ExtResource("6_b101i")
+text = "(key needed)"
 
 [node name="LockedDoor" type="StaticBody2D" parent="."]
 position = Vector2(1603, 866)
@@ -607,7 +626,10 @@ shape = SubResource("RectangleShape2D_1e2ol")
 [connection signal="body_entered" from="Rooms/Room10/DoorDown" to="Player" method="_on_door_down_body_entered"]
 [connection signal="body_entered" from="Rooms/Room10/DoorRight" to="Player" method="_on_final_body_entered"]
 [connection signal="body_entered" from="LockedDoor/Key_hole" to="Player" method="_on_key_hole_body_entered"]
+[connection signal="body_entered" from="LockedDoor/Key_hole" to="Rooms/Room10" method="_on_key_hole_body_entered"]
+[connection signal="body_exited" from="LockedDoor/Key_hole" to="Rooms/Room10" method="_on_key_hole_body_exited"]
 [connection signal="body_entered" from="Key2" to="Player" method="_on_key_2_body_entered"]
+[connection signal="body_entered" from="Key2" to="Rooms/Room10" method="_on_key_2_body_entered"]
 [connection signal="body_entered" from="Mineable/Diamond/Diamond_Area" to="Mineable/Diamond" method="_on_rock_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Mineable/Diamond/Diamond_Area" to="Mineable/Diamond" method="_on_rock_area_2_body_exited"]
 [connection signal="mouse_entered" from="Mineable/Diamond/Diamond_Area" to="Mineable/Diamond" method="_on_rock_area_2_mouse_entered"]

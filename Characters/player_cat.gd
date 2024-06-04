@@ -21,6 +21,7 @@ extends CharacterBody2D
 @onready var animation = $AnimationPlayer
 @onready var player_direction = Vector2.RIGHT
 
+
 var push_force = 10
 var key_picked_up = false
 const FILE_BEGIN = "res://Levels/puzzle_"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cn8vlfixqxdgy"]
+[gd_scene load_steps=33 format=3 uid="uid://cn8vlfixqxdgy"]
 
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_62an1"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_lbctk"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://tx2kxd4c0rq0" path="res://Art/247G_tileset_5_29.png" id="4_8i6w4"]
 [ext_resource type="Texture2D" uid="uid://dvng5o1deox1u" path="res://Art/247G tileset.png" id="4_r7oi1"]
 [ext_resource type="Script" path="res://Levels/Room1.gd" id="5_0yqlx"]
+[ext_resource type="Script" path="res://Levels/Room7.gd" id="6_k5hen"]
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="6_uakjv"]
 [ext_resource type="PackedScene" uid="uid://dgpe20hlrsibw" path="res://GUI/dungeon_name2.tscn" id="7_8gbli"]
 [ext_resource type="Texture2D" uid="uid://khvdt6kafm5t" path="res://Art/diamond.png" id="7_eot3n"]
 [ext_resource type="Texture2D" uid="uid://f6gs8sipc2b7" path="res://GUI/iron_icon.png" id="8_143im"]
@@ -193,7 +195,7 @@ position = Vector2(1337, 728)
 shape = SubResource("RectangleShape2D_jdn0i")
 
 [node name="Room7" type="Node" parent="Rooms"]
-script = ExtResource("5_0yqlx")
+script = ExtResource("6_k5hen")
 
 [node name="DoorLeft" type="Area2D" parent="Rooms/Room7"]
 position = Vector2(890, -286)
@@ -207,6 +209,22 @@ shape = SubResource("RectangleShape2D_jdn0i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room7/DoorDown"]
 position = Vector2(2425, 585)
 shape = SubResource("RectangleShape2D_3gll7")
+
+[node name="Warning" type="Label" parent="Rooms/Room7"]
+offset_left = 2288.0
+offset_top = 529.0
+offset_right = 2593.0
+offset_bottom = 552.0
+theme_override_fonts/font = ExtResource("6_uakjv")
+text = "you need at least 10 steel to proceed!"
+
+[node name="Key_Warning" type="Label" parent="Rooms/Room7"]
+offset_left = 2380.0
+offset_top = 506.0
+offset_right = 2472.0
+offset_bottom = 529.0
+theme_override_fonts/font = ExtResource("6_uakjv")
+text = "(key needed)"
 
 [node name="Room8" type="Node" parent="Rooms"]
 
@@ -779,7 +797,10 @@ shape = SubResource("RectangleShape2D_y0v32")
 [connection signal="body_entered" from="Rooms/Room13/DoorUp" to="Player" method="_on_door_up_body_entered"]
 [connection signal="body_entered" from="Rooms/Room14/DoorDown" to="Player" method="_on_door_down_body_entered"]
 [connection signal="body_entered" from="LockedDoor/Key_hole" to="Player" method="_on_key_hole_body_entered"]
+[connection signal="body_entered" from="LockedDoor/Key_hole" to="Rooms/Room7" method="_on_key_hole_body_entered"]
+[connection signal="body_exited" from="LockedDoor/Key_hole" to="Rooms/Room7" method="_on_key_hole_body_exited"]
 [connection signal="body_entered" from="Key2" to="Player" method="_on_key_2_body_entered"]
+[connection signal="body_entered" from="Key2" to="Rooms/Room7" method="_on_key_2_body_entered"]
 [connection signal="body_entered" from="Mineable/Steel/Steel_Area" to="Mineable/Steel" method="_on_rock_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Mineable/Steel/Steel_Area" to="Mineable/Steel" method="_on_rock_area_2_body_exited"]
 [connection signal="mouse_entered" from="Mineable/Steel/Steel_Area" to="Mineable/Steel" method="_on_rock_area_2_mouse_entered"]
