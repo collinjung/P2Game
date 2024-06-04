@@ -1,33 +1,28 @@
-join Squeaks 1
+join  1
 if {Global.encountered_squeaks} == false:
 	NPCs/Squeaks: Welcome to Squeaky Cavern!
+	- What is this place?
+	NPCs/Squeaks: This cavern has been beneath our village for decades. We sometimes venture into this upper floor to collect stones and other resources. But Squeaky Cavern is home to dangerous mazes and mysterious puzzles that have prevented us from going any further.
+	- Can this cavern help me get back home?
+	
+	NPCs/Squeaks: I brought you here to tell you about an old legend. Long ago, there were rumors of a mouse who soared to the stars in a flying contraption. It’s said that the parts of his contraption have since been lost in this cavern...
+	- "Flying contraption"?
+	NPCs/Squeaks: That's right. They say that with just a rope, basket, and cloth, the legendary mouse built a contraption that could soar to the sky. If you find all the parts, maybe you could find your way back to your home in the sky!
+	- But even if I could fly, I don't know the way back...
+	NPCs/Squeaks: *squeak* This is where we can help! Us mice have always been skilled navigators and cunning explorers. With the right materials, we can build you a compass to guide your way home.
+	- Materials?
+	NPCs/Squeaks: A compass would require 15 stone, 10 steel, and 5 diamond. But... steel and diamond only appear on the lower levels of the cavern. To find your way back home, you'll have to conquer the mysteries of Squeaky Cavern.
+	- It sounds a little scary... but I have to get back home. I'll do it!
+	
+	NPCs/Squeaks: *squeak*! To prepare you for your journey, here's a pickaxe to help you collect resources. You can press 'E' next to a resource to mine it.
 	- Thanks!
-		NPCs/Squeaks: I'm just a small mouse, but our town's full of charm, With cozy inns, lively markets, and farms aplenty on each farm.
-	
-	- Who are you?
-		NPCs/Squeaks: I'm just a small mouse, but our town's full of charm, With cozy inns, lively markets, and crops aplenty on each farm.
-	
-	NPCs/Squeaks: If you're weary, there's a tavern where you can rest your feet, And if you're hungry, our cheese is a treat you must eat!
-	- Sounds lovely, but I need to return home.
-	
-	NPCs/Squeaks: Long ago, there were rumors of a mouse who reached the stars in a flying contraption. It’s said that the parts of his contraption have  since been lost in the cave.
-	- How can I build this "flying contraption"?
-	
-	NPCs/Squeaks: We can help you if you find the materials, but it'll be dangerous... there have been reports of foul play by horrendous creatures that plague the chambers below.
-	- Oh no.
-	
-	NPCs/Squeaks: We’ll give you a pickaxe to help you collect resources.
-	- Awesome!
-	
-	NPCs/Squeaks: You’ll need to collect 15 rocks, 10 steel ore, and 5 diamond ore to build an enchanted compass.
-	He who wields the compass will have a clear path to their deepest desire.
-	If you wish to go home, then this pickaxe may help you in your quest.
-	- Thank you!
+	NPCs/Squeaks: I wish you the best of luck on your journey.
+	- See you
 
 else:
 	NPCs/Squeaks: Hi, again!
 	- What do I need to collect, again?
-		NPCs/Squeaks: You’ll need to collect 15 rocks, 10 steel ore, and 5 diamond ore to build an enchanted compass.
+		NPCs/Squeaks: You’ll need to collect 15 stone, 10 steel, and 5 diamond ore to build the compass.
 		- Ok, Thanks!
 			NPCs/Squeaks: Good luck!
 	- Bye!

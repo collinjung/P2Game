@@ -1,10 +1,9 @@
-NPCs/Whiskers: **Squeak** You did it! You actually did it! Those blasted rock puzzles had me stumped for ages, but you cracked them like nuts!
-- Thanks! It took a while, but I figured them out eventually.
-NPCs/Whiskers: You sure did! And look at you now, with a rope, a basket, and even a massive cloth! Are you telling me you're finally building that hot air balloon you've been talking about?
-- Yep, that's the plan! Time to head home.
-NPCs/Whiskers: Homeward bound, eh? Well, that's fantastic! I'm so happy for you. This cave has been...well, a cave, for far too long.
-- You'll be okay here?
-NPCs/Whiskers: Me? Oh, I'll be just fine! Besides, someone's gotta keep an eye on these pesky spell books. I’ll stay here to make sure their power doesn’t get into the wrong hands.
-- Good point. Well, take care, little buddy. See you around!
-NPCs/Whiskers: You too, champion! And hey, if you ever get the itch for another rock-pushing adventure, you knwow where to find me! Just don't expect it to be quite as easy next time!
+NPCs/Whiskers: You've arrived.
+- Who are you?
+NPCs/Whiskers: The name's Whiskers. I'm one of the mice who live in this cavern.
+- What are you doing here?
+NPCs/Whiskers: Long ago, the legendary Icamouse built a contraption that could reach the sky. But he flew a little too close to the sun and... the remnants of his contraption fell into this cavern. Ever since, we cavern mice have guarded the remaining parts to prevent other mice from meeting the same fate. Only those with the determination and courage to conquer this cavern are worthy of reaching the sky. 
+- Wow...
+NPCs/Whiskers: You've proven yourself worthy of the legendary flying contraption. I wish you luck on your journey.
+- Thank you
 [end_timeline]

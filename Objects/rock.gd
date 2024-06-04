@@ -20,6 +20,7 @@ func _input(event):
 			get_parent().get_parent().get_node("CanvasLayer").get_node("stone").get_node("Label").text = str(new_mined) + "/15"
 			if new_mined == 15:
 				rocksCompletedSound.play()
+			GameState.stones_mined += 1
 			
 func _on_rock_area_2d_2_body_entered(body):
 	if body.is_in_group("Player"):

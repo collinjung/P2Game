@@ -10,6 +10,7 @@ var is_chatting = false
 
 var player
 var player_in_chat_zone = false
+@onready var message = get_parent().get_node("CanvasLayer").get_node("Label")
 
 enum {
 	IDLE,
@@ -18,11 +19,13 @@ enum {
 func _ready():
 	randomize()
 	start_pos = position
+	message.visible = false
 
 	
 func _process(delta):
 	if player_in_chat_zone == true:
 		if Input.is_action_just_pressed("chat"):
+			message.visible = false
 			start_dialog("whiskers_timeline")
 			
 	if current_state == 0 or current_state == 1:
@@ -34,6 +37,7 @@ func _on_chat_detection_area_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
 		player_in_chat_zone = true
+		message.visible = true
 
 
 func _on_chat_detection_area_body_exited(body):

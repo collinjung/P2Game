@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://c36lyfd28670q"]
+
+[ext_resource type="Texture2D" uid="uid://04lfkkjbb4ir" path="res://GUI/gold_icon.png" id="1_04who"]
+[ext_resource type="Texture2D" uid="uid://f6gs8sipc2b7" path="res://GUI/iron_icon.png" id="2_cu2wu"]
+[ext_resource type="Texture2D" uid="uid://612d44byingg" path="res://Art/stone.png" id="3_tf542"]
+[ext_resource type="Texture2D" uid="uid://b2ki533yvl4la" path="res://GUI/rope_icon.png" id="4_p3o7o"]
+[ext_resource type="Texture2D" uid="uid://qd4o3ihy0mb4" path="res://GUI/basket_icon.png" id="5_ntgap"]
+[ext_resource type="Texture2D" uid="uid://dnuil65nu0nat" path="res://GUI/cloth_icon.png" id="6_hguus"]
+
+[node name="Key Items Display" type="GridContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 6
+
+[node name="Item" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Item"]
+layout_mode = 2
+texture = ExtResource("1_04who")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Item"]
+layout_mode = 2
+text = "0"
+
+[node name="Item2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Item2"]
+layout_mode = 2
+texture = ExtResource("2_cu2wu")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Item2"]
+layout_mode = 2
+text = "0"
+
+[node name="Item3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Item3"]
+layout_mode = 2
+texture = ExtResource("3_tf542")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Item3"]
+layout_mode = 2
+text = "0"
+
+[node name="Item4" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Item4"]
+layout_mode = 2
+texture = ExtResource("4_p3o7o")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Item5" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Item5"]
+layout_mode = 2
+texture = ExtResource("5_ntgap")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Item6" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Item6"]
+layout_mode = 2
+texture = ExtResource("6_hguus")
+expand_mode = 3
+stretch_mode = 4

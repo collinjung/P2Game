@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var starting_direction: Vector2 = Vector2(0, -1)
 @export var direction: Vector2 = Vector2(0, -1)
 @export var lastRoom: Vector2 = Vector2(0, 0)
-@export var lastPosition: Vector2 = Vector2(224, 144)
+@export var lastPosition: Vector2 = Vector2(50, 144)
 @export var magicInput: Array = []
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
@@ -19,6 +19,7 @@ extends CharacterBody2D
 @onready var doorUnlockedSound = $AudioStreamPlayer_DoorUnlock
 @onready var rockMinedSound = $AudioStreamPlayer_MineRock
 @onready var animation = $AnimationPlayer
+@onready var player_direction = Vector2.RIGHT
 
 var push_force = 10
 var key_picked_up = false
@@ -29,15 +30,23 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("mine"):
-		animation.play("mining")
+		if player_direction == Vector2.RIGHT:
+			animation.play("mining_right")
+		else:
+			animation.play("mining_left")
 	return event
 
 func _process(_delta):
 	if Input.is_action_just_pressed('spell'):
 		print("fireball") 
-	if Input.is_action_just_pressed('reset') and camera and player:
-		camera.position = lastRoom
-		player.position = lastPosition
+	if Input.is_action_just_pressed("right"):
+		player_direction = Vector2.RIGHT
+	if Input.is_action_just_pressed("left"):
+		player_direction = Vector2.LEFT
+		
+	#if Input.is_action_just_pressed('reset') and camera and player:
+		#camera.position = lastRoom
+		#player.position = lastPosition
 	#if Input.is_action_just_pressed("mine"):
 	
 	
@@ -55,7 +64,7 @@ func _physics_process(_delta):
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		var b = c.get_collider()
-		if !playerPushingSound.playing and (b.name == "boulder_green" or b.name == "boulder_red" or b.name == "boulder_purple"):
+		if !playerPushingSound.playing and ("boulder" in b.name):
 			playerPushingSound.play()	
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
@@ -90,7 +99,7 @@ func _on_door_right_body_entered(body):
 		camera.position.x += 445
 		player.position.x += 50
 		lastRoom = camera.position
-		lastPosition = camera.position + Vector2(224, 144)
+		lastPosition = camera.position + Vector2(60, 144)
 		
 
 
@@ -99,7 +108,7 @@ func _on_door_left_body_entered(body):
 		camera.position.x -= 445
 		player.position.x -= 50
 		lastRoom = camera.position
-		lastPosition = camera.position + Vector2(224, 144)
+		lastPosition = camera.position + Vector2(350, 144)
 
 
 func _on_door_down_body_entered(body):
@@ -107,14 +116,14 @@ func _on_door_down_body_entered(body):
 		camera.position.y += 288
 		player.position.y += 80
 		lastRoom = camera.position
-		lastPosition = camera.position + Vector2(224, 144)
+		lastPosition = camera.position + Vector2(224, 60)
 
 func _on_door_up_body_entered(body):
 	if body.is_in_group("Player"):
 		camera.position.y -= 288
 		player.position.y -= 80
 		lastRoom = camera.position
-		lastPosition = camera.position + Vector2(224, 144)
+		lastPosition = camera.position + Vector2(224, 350)
 
 
 func _on_key_2_body_entered(body):
@@ -130,7 +139,7 @@ func _on_key_hole_body_entered(body):
 		doorUnlockedSound.play()
 		get_tree().paused = true
 		$key_found.visible = false
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		get_tree().paused = false
 		
 		

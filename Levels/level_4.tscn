@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjbmm23i100c"]
+[gd_scene load_steps=14 format=3 uid="uid://cjbmm23i100c"]
 
+[ext_resource type="Script" path="res://Levels/level_4.gd" id="1_m6w6r"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_ykh1x"]
 [ext_resource type="TileSet" uid="uid://gn2icivw0sub" path="res://Art/P2 Art/level_4.tres" id="2_q0fnm"]
 [ext_resource type="PackedScene" uid="uid://bpokfx5dd48y1" path="res://Characters/whiskers.tscn" id="3_caom7"]
 [ext_resource type="PackedScene" uid="uid://bgms21x73cefl" path="res://GUI/dungeon_name4.tscn" id="4_yum3a"]
-[ext_resource type="PackedScene" uid="uid://o0r7vf4gybfp" path="res://GUI/resouce_display.tscn" id="5_4t6pm"]
+[ext_resource type="Texture2D" uid="uid://khvdt6kafm5t" path="res://Art/diamond.png" id="6_tmdyd"]
+[ext_resource type="Texture2D" uid="uid://f6gs8sipc2b7" path="res://GUI/iron_icon.png" id="7_gniil"]
+[ext_resource type="Texture2D" uid="uid://612d44byingg" path="res://Art/stone.png" id="8_m00ac"]
+[ext_resource type="Texture2D" uid="uid://rohfh2pgafck" path="res://Art/rope.png" id="9_ejfjs"]
+[ext_resource type="Texture2D" uid="uid://bn6g43vxxpihf" path="res://Art/basket.png" id="10_7stlj"]
+[ext_resource type="Texture2D" uid="uid://ba8sdhpc3tqvv" path="res://Art/cloth.png" id="11_imbwv"]
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="12_543l0"]
+[ext_resource type="AudioStream" uid="uid://b2h7rs6414sff" path="res://Audio/ending_music.mp3" id="13_geibl"]
 
 [node name="Level4" type="Node2D"]
 position = Vector2(170, 110)
+script = ExtResource("1_m6w6r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-178, -94)
@@ -33,7 +42,7 @@ layer_1/z_index = -5
 layer_1/tile_data = PackedInt32Array(-262133, 7, 0, -196597, 7, 1, -131061, 7, 2, -65525, 7, 2, 11, 7, 2, 65547, 7, 2, 131083, 7, 2, 196619, 7, 2, 262155, 7, 2, 327691, 7, 65537, -262132, 7, 0, -196596, 65543, 1, 327692, 65543, 65537, -262131, 7, 0, -196595, 65543, 1, 327693, 65543, 65537, -262130, 7, 0, -196594, 65543, 1, 327694, 65543, 65537, -262129, 7, 0, -196593, 65543, 1, 327695, 65543, 65537, -262128, 7, 0, -196592, 65543, 1, 327696, 65543, 65537, -262127, 7, 0, -196591, 65543, 1, 327697, 65543, 65537, -262126, 7, 0, -196590, 65543, 1, 327698, 65543, 65537, -262125, 7, 0, -196589, 65543, 1, 327699, 65543, 65537, -262124, 7, 0, -196588, 65543, 1, 327700, 65543, 65537, -262123, 7, 0, -196587, 65543, 1, 327701, 65543, 65537, -262122, 7, 0, -196586, 65543, 1, 327702, 65543, 65537, -262121, 7, 0, -196585, 65543, 1, 327703, 65543, 65537, -262120, 7, 0, -196584, 131079, 1, -131048, 131079, 2, -65512, 131079, 2, 24, 131079, 2, 65560, 131079, 2, 131096, 131079, 2, 196632, 131079, 2, 262168, 131079, 2, 327704, 131079, 65537, 393227, 65543, 1, 393228, 65543, 1, 393229, 65543, 1, 393230, 65543, 1, 393231, 65543, 1, 393232, 65543, 1, 393233, 65543, 1, 393234, 65543, 1, 393235, 65543, 1, 393236, 65543, 1, 393237, 65543, 1, 393238, 65543, 1, 393239, 65543, 1, 393240, 65543, 1, -196598, 65543, 1342177281, -131062, 65543, 1342177281, -65526, 65543, 1342177281, 10, 65543, 1342177281, 65546, 65543, 1342177281, 131082, 65543, 1342177281, 196618, 65543, 1342177281, 262154, 65543, 1342177281, 327690, 65543, 1342177281, 393226, 65543, 1342177281, -196583, 65543, 1610612737, -131047, 65543, 1610612737, -65511, 65543, 1610612737, 25, 65543, 1610612737, 65561, 65543, 1610612737, 131097, 65543, 1610612737, 196633, 65543, 1610612737, 262169, 65543, 1610612737, 327705, 65543, 1610612737)
 layer_2/name = "Top Ground"
 layer_2/z_index = -3
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(-196597, 851980, 1, -196584, 851980, 1, -131060, 1048588, 3, -131059, 1114124, 3, -65524, 1245196, 3, 12, 1048588, 1, -131050, 1048588, 1, -131051, 1048588, 1, 262158, 1048588, 1, 262159, 1179660, 3, -131049, 1245196, 3, -131057, 655369, 3, -131056, 720905, 3, -131055, 786441, 3, 131084, 655369, 4, 196623, 655369, 4)
 
 [node name="Whiskers" parent="." instance=ExtResource("3_caom7")]
 position = Vector2(214, 50)
@@ -42,4 +51,76 @@ position = Vector2(214, 50)
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("4_yum3a")]
 
-[node name="Resouce Display" parent="CanvasLayer" instance=ExtResource("5_4t6pm")]
+[node name="diamond" type="HBoxContainer" parent="CanvasLayer"]
+offset_top = 254.0
+offset_right = 53.0
+offset_bottom = 278.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/diamond"]
+layout_mode = 2
+texture = ExtResource("6_tmdyd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/diamond"]
+layout_mode = 2
+text = "0/5"
+
+[node name="iron" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 39.0
+offset_top = 254.0
+offset_right = 100.0
+offset_bottom = 277.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/iron"]
+layout_mode = 2
+texture = ExtResource("7_gniil")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/iron"]
+layout_mode = 2
+text = "0/10"
+
+[node name="stone" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 255.0
+offset_right = 151.0
+offset_bottom = 278.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/stone"]
+layout_mode = 2
+texture = ExtResource("8_m00ac")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/stone"]
+layout_mode = 2
+text = "0/15"
+
+[node name="rope" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(392, 256)
+texture = ExtResource("9_ejfjs")
+
+[node name="basket" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(424, 256)
+texture = ExtResource("10_7stlj")
+
+[node name="cloth" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(456, 256)
+texture = ExtResource("11_imbwv")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 184.0
+offset_top = 253.0
+offset_right = 312.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("12_543l0")
+text = "press 'q' to chat"
+
+[node name="AudioStreamPlayer2D_EndingMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_geibl")
+volume_db = -15.0

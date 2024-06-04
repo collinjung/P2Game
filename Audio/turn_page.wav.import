@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://o14fy5fe4aa4"
-path="res://.godot/imported/door_unlock.wav-1af813933129218c25a07451798428a0.sample"
+uid="uid://cjl5eh45plq0b"
+path="res://.godot/imported/turn_page.wav-aca981e1c1f7699be1a38f9d5ed831f6.sample"
 
 [deps]
 
-source_file="res://Audio/door_unlock.wav"
-dest_files=["res://.godot/imported/door_unlock.wav-1af813933129218c25a07451798428a0.sample"]
+source_file="res://Audio/turn_page.wav"
+dest_files=["res://.godot/imported/turn_page.wav-aca981e1c1f7699be1a38f9d5ed831f6.sample"]
 
 [params]
 
