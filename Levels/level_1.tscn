@@ -598,7 +598,7 @@ shape = SubResource("RectangleShape2D_wtj2b")
 
 [node name="AudioStreamPlayer2D_RocksCompleted" type="AudioStreamPlayer2D" parent="Mineable"]
 stream = ExtResource("11_c6tqk")
-volume_db = -15.0
+volume_db = -5.0
 
 [node name="Rock22" parent="Mineable" instance=ExtResource("8_8c0bs")]
 position = Vector2(1079, 622)

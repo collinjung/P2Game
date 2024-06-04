@@ -442,7 +442,7 @@ shape = SubResource("RectangleShape2D_iy21j")
 
 [node name="AudioStreamPlayer2D_ResourceCompleted" type="AudioStreamPlayer2D" parent="Mineable"]
 stream = ExtResource("17_jamcj")
-volume_db = -18.0
+volume_db = -5.0
 
 [node name="Steel3" parent="Mineable" instance=ExtResource("14_e1fsi")]
 position = Vector2(310, 994)

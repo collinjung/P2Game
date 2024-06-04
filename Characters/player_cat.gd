@@ -24,6 +24,8 @@ extends CharacterBody2D
 var push_force = 10
 var key_picked_up = false
 const FILE_BEGIN = "res://Levels/puzzle_"
+const FILE_BEGIN_LEVEL = "res://Levels/level_"
+var trigger = false
 
 func _ready():
 	update_animation_parameters(starting_direction)
@@ -43,7 +45,6 @@ func _process(_delta):
 		player_direction = Vector2.RIGHT
 	if Input.is_action_just_pressed("left"):
 		player_direction = Vector2.LEFT
-		
 	#if Input.is_action_just_pressed('reset') and camera and player:
 		#camera.position = lastRoom
 		#player.position = lastPosition
@@ -92,6 +93,18 @@ func _on_final_body_entered(body):
 		var level_num = current_scene_file.to_int()
 		var current_puzzle_path = FILE_BEGIN + str(level_num) + ".tscn"
 		get_tree().change_scene_to_file(current_puzzle_path)
+		
+		##Called to change to new Sceen
+		#var TheRoot = get_node("/root")  #need this as get_node will stop work once you remove your self from the Tree
+		#var ThisScene = get_node("/root/Node2D")
+		#GameState.PreviousScreen = ThisScene  #variable in Autoload script
+		#TheRoot.remove_child(ThisScene)
+		#var current_scene_file = get_tree().current_scene.scene_file_path
+		#var level_num = current_scene_file.to_int()
+		#var current_puzzle_path = FILE_BEGIN + str(level_num) + ".tscn"
+		#var NextScene = load(current_puzzle_path)
+		#NextScene = NextScene.instantiate()
+		#TheRoot.add_child(NextScene)
 
 
 func _on_door_right_body_entered(body):
@@ -141,5 +154,24 @@ func _on_key_hole_body_entered(body):
 		$key_found.visible = false
 		await get_tree().create_timer(0.5).timeout
 		get_tree().paused = false
+		
+		
+
+
+func _on_return_from_puzzle_body_entered(body):
+	if body.is_in_group("Player"):
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		var next_level_number = current_scene_file.to_int()
+		var next_level_path = FILE_BEGIN_LEVEL + str(next_level_number) + ".tscn"
+		trigger = true
+		get_tree().change_scene_to_file(next_level_path)
+		#var TheRoot = get_node("/root")  #need this as get_node will stop work once you remove your self from the Tree
+		#var ThisScene = get_node("/root/Node2D")
+#
+		#TheRoot.remove_child(ThisScene)
+		#ThisScene.call_deferred("free")
+		#
+		#var NextScene = GameState.PreviousScreen
+		#TheRoot.add_child(NextScene)
 		
 		
