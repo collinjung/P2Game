@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8dnkfgfsxbch"]
 
 [ext_resource type="Script" path="res://Cut Scenes/cut_scene.gd" id="1_8pkbm"]
-[ext_resource type="VideoStream" path="res://Videos/bigger-cutscene-test.ogv" id="2_lmjhp"]
+[ext_resource type="VideoStream" path="res://Videos/IntroScene.ogv" id="2_wr848"]
 
 [node name="Cut Scene" type="Node2D"]
 
@@ -25,7 +25,7 @@ offset_left = 83.0
 offset_top = 177.0
 offset_right = 563.0
 offset_bottom = 447.0
-stream = ExtResource("2_lmjhp")
+stream = ExtResource("2_wr848")
 autoplay = true
 expand = true
 

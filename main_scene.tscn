@@ -51,5 +51,30 @@ theme_override_font_sizes/font_size = 16
 text = "Quit
 "
 
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 64.0
+offset_right = 416.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("3_g6vnl")
+theme_override_font_sizes/font_size = 36
+text = "Cavern Crafter
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 104.0
+offset_right = 416.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_g6vnl")
+text = "Homebound
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Menu/Level 1" to="." method="_on_Load_1_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
