@@ -4,6 +4,7 @@ extends Node
 @export var red_solved = false
 @export var purple_solved = false
 @onready var level_completed_audio = $AudioStreamPlayer_Completion
+@onready var one_boulder_done_audio = $AudioStreamPlayer2D_OneBoulderDone
 @onready var green_boulder = get_parent().get_node("three_boulders").get_node("boulder_green")
 @onready var red_boulder = get_parent().get_node("three_boulders").get_node("boulder_red")
 @onready var purple_boulder = get_parent().get_node("three_boulders").get_node("boulder_purple")
@@ -17,6 +18,7 @@ func _on_green_goal_body_entered(body):
 		green_solved = true
 		green_boulder.boulder_solved = true
 		var newPos = Vector2(128, -30)
+		one_boulder_done_audio.play()
 		if purple_solved == true:
 			green_boulder.global_position = newPos
 			green_boulder.newPos = newPos
@@ -39,6 +41,7 @@ func _on_red_goal_body_entered(body):
 		red_boulder.newPos = newPos
 		red_boulder.reset_state = true
 		red_boulder.freeze = true
+		one_boulder_done_audio.play()
 	if green_solved and red_solved and purple_solved:
 		await get_tree().create_timer(1.0).timeout
 		get_tree().paused = true
@@ -56,6 +59,7 @@ func _on_purple_goal_body_entered(body):
 		purple_boulder.newPos = newPos
 		purple_boulder.reset_state = true
 		purple_boulder.freeze = true
+		one_boulder_done_audio.play()
 	if green_solved and red_solved and purple_solved:
 		await get_tree().create_timer(1.0).timeout
 		get_tree().paused = true

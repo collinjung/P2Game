@@ -315,7 +315,7 @@ parameters/Walk/blend_position = Vector2(0.309471, 0.0144737)
 
 [node name="AudioStreamPlayer_Pushing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0iw3q")
-volume_db = -20.0
+volume_db = -5.0
 
 [node name="AudioStreamPlayer_Walking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_jjbgt")
