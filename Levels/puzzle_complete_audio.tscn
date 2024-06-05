@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://j78ree5lraxp"]
 
-[ext_resource type="AudioStream" uid="uid://dsjjpwrxtjen2" path="res://Audio/key_item.wav" id="1_vpedt"]
+[ext_resource type="AudioStream" uid="uid://cq180eiw1301v" path="res://Audio/key_item.wav" id="1_vpedt"]
 
 [node name="PuzzleCompleteAudio" type="AudioStreamPlayer"]
 stream = ExtResource("1_vpedt")
