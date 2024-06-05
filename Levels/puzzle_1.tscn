@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://mefbw3c36tdf"]
+[gd_scene load_steps=35 format=3 uid="uid://mefbw3c36tdf"]
 
 [ext_resource type="Texture2D" uid="uid://dqw7vimg0lap7" path="res://Art/P2 Art/map.PNG" id="1_6jo1p"]
 [ext_resource type="Script" path="res://Levels/puzzle.gd" id="1_kqacx"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cn5r20qsjy41u" path="res://Art/hint_1.PNG" id="16_njqmn"]
 [ext_resource type="AudioStream" uid="uid://b6cd1l8t3xhq8" path="res://Audio/open_hint.mp3" id="17_i8g81"]
 [ext_resource type="AudioStream" uid="uid://m60plc1rq3kg" path="res://Audio/close_hint.mp3" id="18_d5x5c"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="20_ltq76"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swq6p"]
 texture = ExtResource("1_6jo1p")
@@ -908,6 +909,10 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_fkjb6")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("20_ltq76")]
 
 [connection signal="body_entered" from="boulders/boulder_green" to="PlayerCat" method="_on_boulder_green_body_entered"]
 [connection signal="body_entered" from="boulders/NextLevel" to="boulders/NextLevel" method="_on_body_entered"]

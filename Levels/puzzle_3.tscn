@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d150fubbwg6d5"]
+[gd_scene load_steps=37 format=3 uid="uid://d150fubbwg6d5"]
 
 [ext_resource type="Script" path="res://Levels/puzzle_3.gd" id="1_u48bs"]
 [ext_resource type="Script" path="res://Levels/3boulders.gd" id="2_abyu2"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bn6g43vxxpihf" path="res://Art/basket.png" id="16_niso2"]
 [ext_resource type="Texture2D" uid="uid://3306e0b1mlgt" path="res://Art/cloth_transparent.png" id="17_h7o3m"]
 [ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="18_041nl"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="22_t1d2f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ywha"]
 
@@ -941,6 +942,10 @@ volume_db = -15.0
 
 [node name="AudioStreamPlayer2D_FireSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_2bvlb")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("22_t1d2f")]
 
 [connection signal="body_entered" from="three_boulders/NextLevel" to="three_boulders/NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="green_goal" to="three_boulders" method="_on_green_goal_body_entered"]

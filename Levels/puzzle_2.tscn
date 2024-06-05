@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://rciwn4u2momg"]
+[gd_scene load_steps=36 format=3 uid="uid://rciwn4u2momg"]
 
 [ext_resource type="Script" path="res://Levels/puzzle_2.gd" id="1_fx7j0"]
 [ext_resource type="Texture2D" uid="uid://dqw7vimg0lap7" path="res://Art/P2 Art/map.PNG" id="2_ks0sg"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://kvvmxqdpyg2e" path="res://Art/basket_transparent.png" id="16_p0fw4"]
 [ext_resource type="Texture2D" uid="uid://3306e0b1mlgt" path="res://Art/cloth_transparent.png" id="17_rrgho"]
 [ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="18_d0qvs"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="21_jm72g"]
 [ext_resource type="AudioStream" uid="uid://cjeqnhoxjy54a" path="res://Audio/water_drip.mp3" id="21_u8bm1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swq6p"]
@@ -915,6 +916,10 @@ text = "press 'h' for a hint
 
 [node name="AudioStreamPlayer2D_WaterDrip" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_u8bm1")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("21_jm72g")]
 
 [connection signal="body_entered" from="boulders/NextLevel" to="boulders/NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="green_goal" to="boulders" method="_on_green_goal_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cn8vlfixqxdgy"]
+[gd_scene load_steps=34 format=3 uid="uid://cn8vlfixqxdgy"]
 
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_62an1"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_lbctk"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://baqpddub1jwps" path="res://Audio/resource_completed_sound.wav" id="17_jamcj"]
 [ext_resource type="AudioStream" uid="uid://cjeqnhoxjy54a" path="res://Audio/water_drip.mp3" id="18_3j2hp"]
 [ext_resource type="Texture2D" uid="uid://dqcwvboqcrrcd" path="res://Art/P2 Art/boulder.png" id="19_jq56m"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="22_uuxsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hdod"]
 size = Vector2(8, 50)
@@ -770,6 +771,10 @@ texture = ExtResource("19_jq56m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boulder4"]
 position = Vector2(36, -24)
 shape = SubResource("RectangleShape2D_y0v32")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("22_uuxsc")]
 
 [connection signal="body_entered" from="Rooms/Room1/DoorRight" to="Player" method="_on_door_right_body_entered"]
 [connection signal="body_entered" from="Rooms/Room2/DoorRight" to="Player" method="_on_door_right_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dw262hhp7ww12"]
+[gd_scene load_steps=29 format=3 uid="uid://dw262hhp7ww12"]
 
 [ext_resource type="Script" path="res://Levels/puzzle.gd" id="1_6mjbk"]
 [ext_resource type="Script" path="res://Levels/3boulders.gd" id="2_abyu2"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cq180eiw1301v" path="res://Audio/key_item.wav" id="6_8npf6"]
 [ext_resource type="Script" path="res://Levels/boulder_purple.gd" id="6_xy6pu"]
 [ext_resource type="Script" path="res://Levels/next_level.gd" id="7_kpww0"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="13_mx7ip"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ywha"]
 
@@ -775,6 +776,10 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rocks/rocks5"]
 position = Vector2(161, -112.875)
 shape = SubResource("RectangleShape2D_svnfr")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("13_mx7ip")]
 
 [connection signal="body_entered" from="three_boulders/NextLevel" to="three_boulders/NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="green_goal" to="three_boulders" method="_on_green_goal_body_entered"]
