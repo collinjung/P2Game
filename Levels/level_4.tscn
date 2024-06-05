@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjbmm23i100c"]
+[gd_scene load_steps=15 format=3 uid="uid://cjbmm23i100c"]
 
 [ext_resource type="Script" path="res://Levels/level_4.gd" id="1_m6w6r"]
 [ext_resource type="PackedScene" uid="uid://mlj24b2hk5qs" path="res://Characters/player_cat.tscn" id="1_ykh1x"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ba8sdhpc3tqvv" path="res://Art/cloth.png" id="11_imbwv"]
 [ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="12_543l0"]
 [ext_resource type="AudioStream" uid="uid://b2h7rs6414sff" path="res://Audio/ending_music.mp3" id="13_geibl"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="14_lo4gc"]
 
 [node name="Level4" type="Node2D"]
 position = Vector2(170, 110)
@@ -124,3 +125,7 @@ text = "press 'q' to chat"
 [node name="AudioStreamPlayer2D_EndingMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_geibl")
 volume_db = -15.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("14_lo4gc")]

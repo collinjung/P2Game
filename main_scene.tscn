@@ -1,13 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf5lc88avfjrd"]
+[gd_scene load_steps=6 format=3 uid="uid://bf5lc88avfjrd"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_otlu0"]
 [ext_resource type="Theme" uid="uid://b4a2khy64nn7a" path="res://default_button.tres" id="2_1uwdj"]
+[ext_resource type="AudioStream" uid="uid://bsmyj67iyhx2k" path="res://Audio/intro_music.mp3" id="2_47s2q"]
 [ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="3_g6vnl"]
+[ext_resource type="VideoStream" path="res://Videos/title-screen.ogv" id="4_1xlef"]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource("1_otlu0")
 
+[node name="AudioStreamPlayer2D_EndingMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_47s2q")
+autoplay = true
+
 [node name="Main" type="Node2D" parent="."]
+
+[node name="Cut Scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -177.0
+offset_right = -83.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Cut Scene"]
+layout_mode = 1
+offset_left = 83.0
+offset_top = 177.0
+offset_right = 563.0
+offset_bottom = 447.0
+stream = ExtResource("4_1xlef")
+autoplay = true
+expand = true
+loop = true
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -51,30 +81,6 @@ theme_override_font_sizes/font_size = 16
 text = "Quit
 "
 
-[node name="Label" type="Label" parent="Menu"]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 64.0
-offset_right = 416.0
-offset_bottom = 114.0
-theme_override_fonts/font = ExtResource("3_g6vnl")
-theme_override_font_sizes/font_size = 36
-text = "Cavern Crafter
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="Menu"]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 104.0
-offset_right = 416.0
-offset_bottom = 144.0
-theme_override_fonts/font = ExtResource("3_g6vnl")
-text = "Homebound
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
+[connection signal="finished" from="Cut Scene/VideoStreamPlayer" to="Cut Scene" method="_on_video_stream_player_finished"]
 [connection signal="pressed" from="Menu/Level 1" to="." method="_on_Load_1_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

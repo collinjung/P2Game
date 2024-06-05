@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd3yy2q1orqbb"]
+
+[ext_resource type="Script" path="res://paused_menu.gd" id="1_r6fc1"]
+[ext_resource type="Texture2D" uid="uid://ymwhl0trki2r" path="res://Art/2624905-middle Background Removed.png" id="2_spnbx"]
+[ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="3_bea24"]
+
+[node name="PausedMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6fc1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(235, 139)
+scale = Vector2(0.304728, 0.30625)
+texture = ExtResource("2_spnbx")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -68.0
+offset_right = 167.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 10
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.29407, 0.226814, 0.162349, 1)
+theme_override_fonts/font = ExtResource("3_bea24")
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+
+[node name="Resume" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_bea24")
+theme_override_font_sizes/font_size = 18
+text = "Resume"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_bea24")
+theme_override_font_sizes/font_size = 18
+text = "Quit
+"
+
+[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
