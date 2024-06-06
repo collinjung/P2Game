@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://Objects/diamond.gd" id="15_37r4j"]
 [ext_resource type="AudioStream" uid="uid://dfherq0efml2" path="res://Audio/diamond_mined_sound.mp3" id="16_r5s12"]
 [ext_resource type="Texture2D" uid="uid://dqcwvboqcrrcd" path="res://Art/P2 Art/boulder.png" id="17_q4nht"]
-[ext_resource type="PackedScene" path="res://paused_menu.tscn" id="18_qv7us"]
+[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="18_qv7us"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55cug"]
 size = Vector2(72, 8)

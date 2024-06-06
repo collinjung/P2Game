@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dcqg85eh5xnx3"]
 
-[ext_resource type="VideoStream" path="res://Videos/bigger-cutscene-test.ogv" id="1_n4cgs"]
+[ext_resource type="VideoStream" path="res://Videos/ending-scene.ogv" id="1_1rrni"]
 
 [node name="Final Scene" type="Node2D"]
 
@@ -14,6 +14,6 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
-stream = ExtResource("1_n4cgs")
+stream = ExtResource("1_1rrni")
 autoplay = true
 expand = true
