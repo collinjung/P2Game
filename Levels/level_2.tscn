@@ -21,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://baqpddub1jwps" path="res://Audio/resource_completed_sound.wav" id="17_jamcj"]
 [ext_resource type="AudioStream" uid="uid://cjeqnhoxjy54a" path="res://Audio/water_drip.mp3" id="18_3j2hp"]
 [ext_resource type="Texture2D" uid="uid://dqcwvboqcrrcd" path="res://Art/P2 Art/boulder.png" id="19_jq56m"]
-[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="22_uuxsc"]
+[ext_resource type="PackedScene" path="res://paused_menu.tscn" id="22_uuxsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hdod"]
 size = Vector2(8, 50)
@@ -352,8 +352,9 @@ shape = SubResource("RectangleShape2D_f8t20")
 [node name="Control" parent="CanvasLayer" instance=ExtResource("7_8gbli")]
 
 [node name="diamond" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 95.0
 offset_top = 256.0
-offset_right = 53.0
+offset_right = 148.0
 offset_bottom = 280.0
 scale = Vector2(0.7, 0.7)
 
@@ -368,9 +369,9 @@ layout_mode = 2
 text = "0/5"
 
 [node name="iron" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 39.0
+offset_left = 47.0
 offset_top = 256.0
-offset_right = 100.0
+offset_right = 108.0
 offset_bottom = 279.0
 scale = Vector2(0.7, 0.7)
 
@@ -385,10 +386,9 @@ layout_mode = 2
 text = "0/10"
 
 [node name="stone" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 87.0
-offset_top = 257.0
-offset_right = 151.0
-offset_bottom = 280.0
+offset_top = 256.0
+offset_right = 64.0
+offset_bottom = 279.0
 scale = Vector2(0.7, 0.7)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/stone"]

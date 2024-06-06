@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bn6g43vxxpihf" path="res://Art/basket.png" id="16_niso2"]
 [ext_resource type="Texture2D" uid="uid://3306e0b1mlgt" path="res://Art/cloth_transparent.png" id="17_h7o3m"]
 [ext_resource type="FontFile" uid="uid://c4oaiwxnqmnbo" path="res://Fonts/PF Videotext Pro Regular.ttf" id="18_041nl"]
-[ext_resource type="PackedScene" uid="uid://dd3yy2q1orqbb" path="res://paused_menu.tscn" id="22_t1d2f"]
+[ext_resource type="PackedScene" path="res://paused_menu.tscn" id="22_t1d2f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ywha"]
 
